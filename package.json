@@ -9,12 +9,16 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "format": "biome format .",
+    "format:write": "biome format --write .",
+    "lint": "biome lint .",
+    "lint:write": "biome lint --write .",
+    "check": "biome check .",
+    "check:write": "biome check --write ."
   },
   "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "dependencies": {
     "@solidjs/router": "^0.14.3",
     "@tauri-apps/api": ">=2.0.0-rc.0",
@@ -22,6 +26,7 @@
     "solid-js": "^1.7.8"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@pandacss/dev": "^0.45.1",
     "@tauri-apps/cli": ">=2.0.0-rc.0",
     "@types/node": "^22.5.0",

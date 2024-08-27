@@ -1,6 +1,6 @@
+import { resolve } from "node:path"
 import { defineConfig } from "vite"
 import solid from "vite-plugin-solid"
-import { resolve } from "node:path"
 
 const root = import.meta.dirname
 const host = process.env.TAURI_DEV_HOST

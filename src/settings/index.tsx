@@ -1,8 +1,8 @@
 import "./styles/global.css"
 
-import { render } from "solid-js/web"
 import { Router } from "@solidjs/router"
-import { Component, JSX } from "solid-js"
+import type { Component, JSX } from "solid-js"
+import { render } from "solid-js/web"
 
 type LayoutProps = {
   children?: JSX.Element
@@ -17,6 +17,7 @@ const Layout: Component<LayoutProps> = (props) => {
   )
 }
 
-const App = () => <Router root={Layout}></Router>
+const App = () => <Router root={Layout} />
 
+// biome-ignore lint/style/noNonNullAssertion: #root is always present in the DOM
 render(App, document.getElementById("root")!)
