@@ -12,8 +12,15 @@
     "windows": [
       {
         "title": "wormhole",
+        "label": "settings",
+        "url": "/src/search/index.html",
         "width": 800,
         "height": 600
+      },
+      {
+        "title": "wormhole",
+        "label": "search",
+        "url": "/src/settings/index.html"
       }
     ],
     "security": {

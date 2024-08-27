@@ -1,8 +1,9 @@
-import { defineConfig } from "vite";
-import solid from "vite-plugin-solid";
+import { defineConfig } from "vite"
+import solid from "vite-plugin-solid"
+import { resolve } from "node:path"
 
-// @ts-expect-error process is a nodejs global
-const host = process.env.TAURI_DEV_HOST;
+const root = import.meta.dirname
+const host = process.env.TAURI_DEV_HOST
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
@@ -29,4 +30,12 @@ export default defineConfig(async () => ({
       ignored: ["**/src-tauri/**"],
     },
   },
-}));
+  build: {
+    rollupOptions: {
+      input: {
+        search: resolve(root, "src/search/index.html"),
+        settings: resolve(root, "src/settings/index.html"),
+      },
+    },
+  },
+}))
