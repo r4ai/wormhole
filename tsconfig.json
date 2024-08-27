@@ -6,6 +6,11 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
     "types": [],
+    "paths": {
+      "@search/*": ["./src/search/*"],
+      "@settings/*": ["./src/settings/*"],
+      "styled-system/*": ["./styled-system/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
