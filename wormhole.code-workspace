@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "name": "wormhole",
+      "path": "."
+    },
+    {
+      "name": "@wormhole/ui",
+      "path": "./packages/ui"
+    }
+  ]
+}

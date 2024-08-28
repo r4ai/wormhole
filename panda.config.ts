@@ -1,20 +1,15 @@
 import { defineConfig } from "@pandacss/dev"
+import wormhole from "@wormhole/ui/preset"
 
 export default defineConfig({
-  // Whether to use css reset
+  presets: ["@pandacss/dev/presets", wormhole],
   preflight: true,
-
-  // Where to look for your css declarations
-  include: ["./src/**/*.{js,jsx,ts,tsx}"],
-
-  // Files to exclude
+  include: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@wormhole/ui/src/**/*.{js,jsx,ts,tsx}",
+  ],
   exclude: [],
-
-  // Useful for theme customization
-  theme: {
-    extend: {},
-  },
-
-  // The output directory for your css system
-  outdir: "styled-system",
+  outdir: "./packages/styled-system/dist",
+  importMap: "@wormhole/styled-system",
+  jsxFramework: "solid",
 })
