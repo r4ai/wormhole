@@ -10,7 +10,7 @@ function generateConfig(format: "esm" | "cjs", jsx: boolean): Options {
     format,
     clean: true,
     dts: format === "esm" && !jsx,
-    entry: ["src/index.ts", "src/preset.ts", "src/button/index.ts"],
+    entry: ["src/index.ts", "src/preset/index.ts", "src/button/index.ts"],
     outDir: "dist/",
     treeshake: { preset: "smallest" },
     replaceNodeEnv: true,
