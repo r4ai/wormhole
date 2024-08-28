@@ -29,16 +29,23 @@ export const button = cva({
   },
   variants: {
     variant: {
-      default: {
-        bg: "background.accent",
-        color: "foreground.accent",
+      primary: {
+        bg: "background.primary",
+        color: "foreground.primary",
         _hover: {
-          bg: "background.accent/90",
+          bg: "background.primary/90",
+        },
+      },
+      secondary: {
+        bg: "background.secondary",
+        color: "foreground.secondary",
+        _hover: {
+          bg: "background.secondary/90",
         },
       },
       outline: {
         borderWidth: "1px",
-        borderColor: "border.input",
+        borderColor: "border",
         bg: "background",
         _hover: {
           bg: "background.muted",
@@ -57,15 +64,15 @@ export const button = cva({
       },
     },
     size: {
-      default: {
-        height: "10",
-        px: "4",
-        py: "2",
-      },
       sm: {
         height: "9",
         rounded: "md",
         px: "3",
+      },
+      md: {
+        height: "10",
+        px: "4",
+        py: "2",
       },
       lg: {
         height: "11",
@@ -79,8 +86,8 @@ export const button = cva({
     },
   },
   defaultVariants: {
-    variant: "default",
-    size: "default",
+    variant: "primary",
+    size: "md",
   },
 })
 

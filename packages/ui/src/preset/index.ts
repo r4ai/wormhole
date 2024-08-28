@@ -15,14 +15,20 @@ export default definePreset({
             },
             muted: {
               value: {
-                base: "{colors.zinc.600}",
+                base: "{colors.zinc.500}",
                 _dark: "{colors.zinc.400}",
               },
             },
-            accent: {
+            primary: {
               value: {
                 base: "{colors.zinc.50}",
                 _dark: "{colors.zinc.900}",
+              },
+            },
+            secondary: {
+              value: {
+                base: "{colors.zinc.900}",
+                _dark: "{colors.zinc.50}",
               },
             },
           },
@@ -36,13 +42,19 @@ export default definePreset({
             muted: {
               value: {
                 base: "{colors.zinc.100}",
-                _dark: "{colors.zinc.900}",
+                _dark: "{colors.zinc.800}",
               },
             },
-            accent: {
+            primary: {
               value: {
                 base: "{colors.zinc.900}",
-                _dark: "{colors.zinc.100}",
+                _dark: "{colors.zinc.50}",
+              },
+            },
+            secondary: {
+              value: {
+                base: "{colors.zinc.100}",
+                _dark: "{colors.zinc.800}",
               },
             },
           },
@@ -69,6 +81,10 @@ export default definePreset({
         },
       },
     },
+  },
+  conditions: {
+    light: "[data-color-scheme=light] &",
+    dark: "[data-color-scheme=dark] &",
   },
   globalCss: defineGlobalStyles({
     body: {

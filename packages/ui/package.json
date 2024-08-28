@@ -18,11 +18,7 @@
       "solid": "./dist/index.jsx",
       "default": "./dist/index.js"
     },
-    "./preset": {
-      "types": "./dist/preset.d.ts",
-      "default": "./dist/preset.js"
-    },
-    "./style.css": "./dist/style.css",
+    "./styles.css": "./dist/styles.css",
     "./*": {
       "types": "./dist/*/index.d.ts",
       "solid": "./dist/*/index.jsx",
@@ -31,8 +27,10 @@
   },
   "scripts": {
     "prepare": "panda codegen",
-    "build": "tsup && panda cssgen -o dist/style.css",
-    "dev": "tsup --watch"
+    "build": "tsup && panda cssgen -o dist/styles.css",
+    "dev": "tsup --watch",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "peerDependencies": {
     "solid-js": "^1.8.21"
@@ -42,11 +40,25 @@
     "@wormhole/styled-system": "workspace:*"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "1.7.0",
     "@pandacss/dev": "^0.45.1",
-    "solid-js": "1.8.21",
+    "@storybook/addon-a11y": "8.2.9",
+    "@storybook/addon-essentials": "^8.2.9",
+    "@storybook/addon-interactions": "^8.2.9",
+    "@storybook/addon-links": "^8.2.9",
+    "@storybook/addon-themes": "^8.2.9",
+    "@storybook/blocks": "^8.2.9",
+    "@storybook/docs-tools": "8.2.9",
+    "@storybook/manager-api": "8.2.9",
+    "@storybook/testing-library": "0.2.2",
+    "@storybook/theming": "^8.2.9",
     "@types/bun": "1.1.8",
     "esbuild": "0.23.1",
     "esbuild-plugin-solid": "0.6.0",
+    "solid-js": "1.8.21",
+    "storybook": "^8.2.9",
+    "storybook-solidjs": "1.0.0-beta.2",
+    "storybook-solidjs-vite": "1.0.0-beta.2",
     "tsup": "8.2.4",
     "typescript": "5.5.4"
   }

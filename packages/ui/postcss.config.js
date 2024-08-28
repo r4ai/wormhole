@@ -1,5 +1,5 @@
+import panda from "@pandacss/dev/postcss"
+
 export default {
-  plugins: {
-    "@pandacss/dev/postcss": {},
-  },
+  plugins: [panda()],
 }
