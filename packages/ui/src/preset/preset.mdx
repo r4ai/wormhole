@@ -1,0 +1,55 @@
+import { token } from "@wormhole/styled-system/tokens";
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="wormhole-preset" />
+
+# PandaCSS Wormhole Preset
+
+## Smantic Color Tokens
+
+<ColorPalette>
+  <div data-color-scheme="light">
+    <ColorItem
+      title="Background (light)"
+      subtitle="Background colors when using light mode"
+      colors={{
+        DEFAULT: token("colors.background"),
+        muted: token("colors.background.muted"),
+        primary: token("colors.background.primary"),
+        secondary: token("colors.background.secondary"),
+      }}
+    />
+    <ColorItem
+      title="Foreground (light)"
+      subtitle="Foreground colors when using light mode"
+      colors={{
+        DEFAULT: token("colors.foreground"),
+        muted: token("colors.foreground.muted"),
+        primary: token("colors.foreground.primary"),
+        secondary: token("colors.foreground.secondary"),
+      }}
+    />
+  </div>
+  <div data-color-scheme="dark">
+    <ColorItem
+      title="Background (dark)"
+      subtitle="Background colors when using dark mode"
+      colors={{
+        DEFAULT: token("colors.background"),
+        muted: token("colors.background.muted"),
+        primary: token("colors.background.primary"),
+        secondary: token("colors.background.secondary"),
+      }}
+    />
+    <ColorItem
+      title="Foreground (dark)"
+      subtitle="Foreground colors when using dark mode"
+      colors={{
+        DEFAULT: token("colors.foreground"),
+        muted: token("colors.foreground.muted"),
+        primary: token("colors.foreground.primary"),
+        secondary: token("colors.foreground.secondary"),
+      }}
+    />
+  </div>
+</ColorPalette>

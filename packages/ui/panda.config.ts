@@ -4,7 +4,10 @@ import preset from "./src/preset"
 export default defineConfig({
   presets: ["@pandacss/dev/presets", preset],
   preflight: true,
-  include: ["./src/**/*.{js,jsx,ts,tsx}", "./.storybook/**/*.{js,jsx,ts,tsx}"],
+  include: [
+    "./src/**/*.{js,jsx,ts,tsx,mdx}",
+    "./.storybook/**/*.{js,jsx,ts,tsx}",
+  ],
   exclude: [],
   outdir: "../styled-system/dist",
   importMap: "@wormhole/styled-system",
