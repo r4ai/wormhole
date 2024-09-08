@@ -11,8 +11,8 @@ export const About = () => {
     const convertedPath = convertFileSrc(path)
     console.log("convertedPath", convertedPath)
     const mod = await import(convertedPath)
-    const { name } = mod
-    console.log(name)
+    const { getApplications } = mod
+    console.log("getApplications", await getApplications())
   })
 
   return (

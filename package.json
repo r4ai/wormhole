@@ -18,7 +18,7 @@
     "check:write": "biome check --write ."
   },
   "license": "MIT",
-  "workspaces": ["packages/*"],
+  "workspaces": ["packages/*", "plugins/*"],
   "imports": {
     "styled-system/*": "./styled-system/*"
   },
