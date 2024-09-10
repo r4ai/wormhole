@@ -33,7 +33,8 @@
         "img-src": "'self' asset: http://asset.localhost",
         "script-src": "'self' asset: http://asset.localhost"
       }
-    }
+    },
+    "withGlobalTauri": true
   },
   "bundle": {
     "active": true,
