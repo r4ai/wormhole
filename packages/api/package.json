@@ -1,5 +1,5 @@
 {
-  "name": "@wormhole/panda",
+  "name": "@wormhole/api",
   "version": "0.0.0",
   "private": true,
   "author": {
@@ -27,22 +27,25 @@
     "LICENSE"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+    "./*": {
+      "import": "./dist/*.js",
+      "types": "./dist/*.d.ts"
     }
   },
   "scripts": {
     "build": "rimraf dist && tsc --project tsconfig.build.json",
-    "test": "vitest",
-    "test:ci": "vitest run",
+    "dev": "tsc --watch --preserveWatchOutput",
+    "test": "echo 'not implemented'",
     "release": "bun run build && bun run test:ci && bun run changeset publish",
     "prepublishOnly": "bun run build"
   },
   "peerDependencies": {
     "@pandacss/dev": "^0.45.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@tauri-apps/api": ">=2.0.0-rc.0",
+    "@tauri-apps/plugin-store": ">=2.0.0-rc.0"
+  },
   "devDependencies": {
     "@tsconfig/node16": "16.1.3",
     "rimraf": "6.0.1",

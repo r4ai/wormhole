@@ -1,0 +1,14 @@
+{
+  "id": "@wormhole/application",
+  "name": "Application",
+  "description": "Application launcher",
+  "version": "0.0.0",
+  "commands": [],
+  "hooks": {
+    "on_enable": {
+      "lang": "javascript",
+      "script_file_path": "index.js",
+      "function_name": "onEnable"
+    }
+  }
+}
