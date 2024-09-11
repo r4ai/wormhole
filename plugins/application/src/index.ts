@@ -1,5 +1,5 @@
 import * as path from "@tauri-apps/api/path"
-import { open } from "@tauri-apps/plugin-shell"
+import { open } from "@wormhole/api/system"
 import { getApplications } from "./apps"
 import * as db from "./db"
 

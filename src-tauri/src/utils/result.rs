@@ -7,6 +7,9 @@ pub enum Error {
     TauriPluginStore(#[from] tauri_plugin_store::Error),
 
     #[error(transparent)]
+    TauriPluginShell(#[from] tauri_plugin_shell::Error),
+
+    #[error(transparent)]
     Io(#[from] std::io::Error),
 
     #[error(transparent)]

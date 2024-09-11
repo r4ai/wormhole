@@ -1,5 +1,5 @@
 import { Store } from "@tauri-apps/plugin-store"
-import type { Command } from "@wormhole/api"
+import type { Command } from "@wormhole/api/schema"
 
 const DB_STORE_PATH = "db.bin"
 
