@@ -1,6 +1,6 @@
 import "./styles/global.css"
 import { HashRouter, Route } from "@solidjs/router"
-import { css } from "@wormhole/styled-system/css"
+import { SearchFooter, SearchInput, SearchRoot } from "@wormhole/ui/internal"
 import { type Component, type JSX, createEffect } from "solid-js"
 import { render } from "solid-js/web"
 import { initPluginsListeners } from "./api/plugins"
@@ -17,13 +17,11 @@ const Layout: Component<LayoutProps> = (props) => {
   })
 
   return (
-    <div
-      class={css({
-        minHeight: "full",
-      })}
-    >
+    <SearchRoot>
+      <SearchInput />
       {props.children}
-    </div>
+      <SearchFooter />
+    </SearchRoot>
   )
 }
 

@@ -27,6 +27,7 @@ pub struct Command {
     #[serde(default)]
     pub kind: String,
     pub id: String,
+    pub plugin_id: String,
     pub name: String,
     #[serde(default)]
     pub aliases: Vec<String>,
@@ -40,6 +41,7 @@ impl Default for Command {
         Command {
             kind: "command".to_string(),
             id: String::default(),
+            plugin_id: String::default(),
             name: String::default(),
             aliases: Vec::default(),
             action: Action::default(),

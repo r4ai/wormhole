@@ -14,6 +14,7 @@ import {
   type JSX,
   type ParentComponent,
   Suspense,
+  createEffect,
   createResource,
   mergeProps,
   splitProps,
@@ -80,10 +81,17 @@ export const SearchRoot: Component<SearchRootProps> = (props) => {
 
 export type SearchInputProps = ComponentProps<"form"> & {
   css?: JsxStyleProps
+  onQueryChange?: (query: string) => void
+  exit?: () => void
 }
 
 export const SearchInput: Component<SearchInputProps> = (props) => {
-  const [local, rest] = splitProps(props, ["class", "css"])
+  const [local, rest] = splitProps(props, [
+    "class",
+    "css",
+    "onQueryChange",
+    "exit",
+  ])
   const {
     query,
     setQuery,
@@ -105,6 +113,9 @@ export const SearchInput: Component<SearchInputProps> = (props) => {
         decrementActiveIndex()
         resultRefs().at(activeIndex())?.scrollIntoView({ block: "nearest" })
         break
+      case "Escape":
+        local.exit?.()
+        break
     }
   }
 
@@ -112,6 +123,8 @@ export const SearchInput: Component<SearchInputProps> = (props) => {
     e.preventDefault()
     resultRefs().at(activeIndex())?.click()
   }
+
+  createEffect(() => local.onQueryChange?.(query()))
 
   return (
     <form
@@ -175,7 +188,7 @@ export const LoadingSearchResults: Component<LoadingSearchResultsProps> = (
 
 const defaultQuery = { offset: 0, limit: 20 } satisfies Partial<SearchQuery>
 
-type SearchResultsProps = ComponentProps<"ol"> & {
+export type SearchResultsProps = ComponentProps<"ol"> & {
   css?: JsxStyleProps
   search?: (query: SearchQuery) => Promise<Command[]>
   defaultQuery?: Partial<SearchQuery>
@@ -185,7 +198,7 @@ type SearchResultsProps = ComponentProps<"ol"> & {
   ) => Partial<SearchResultProps>
 }
 
-const SearchResults: Component<SearchResultsProps> = (props) => {
+export const SearchResults: Component<SearchResultsProps> = (props) => {
   const [local, rest] = splitProps(
     mergeProps({ search, defaultQuery }, props),
     ["class", "css", "defaultQuery", "search", "searchResultProps"],

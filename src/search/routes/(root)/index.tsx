@@ -1,5 +1,6 @@
 import { Store } from "@tauri-apps/plugin-store"
-import { createEffect, createSignal, type Component } from "solid-js"
+import { LoadingSearchResults, SearchResults } from "@wormhole/ui/internal"
+import { createEffect, createSignal, Suspense, type Component } from "solid-js"
 
 export const Root: Component = () => {
   const [settings, setSettings] = createSignal<unknown>(null)
@@ -28,6 +29,8 @@ export const Root: Component = () => {
   })
 
   return (
-    <pre>{JSON.stringify({ settings: settings(), db: db() }, null, 2)}</pre>
+    <Suspense fallback={<LoadingSearchResults />}>
+      <SearchResults />
+    </Suspense>
   )
 }
