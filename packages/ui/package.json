@@ -37,7 +37,8 @@
   },
   "dependencies": {
     "@kobalte/core": "^0.13.5",
-    "@wormhole/styled-system": "workspace:*"
+    "@wormhole/styled-system": "workspace:*",
+    "@wormhole/api": "workspace:*"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "1.7.0",
@@ -55,6 +56,7 @@
     "@types/bun": "1.1.8",
     "esbuild": "0.23.1",
     "esbuild-plugin-solid": "0.6.0",
+    "fuse.js": "7.0.0",
     "solid-js": "1.8.21",
     "storybook": "^8.2.9",
     "storybook-solidjs": "1.0.0-beta.2",

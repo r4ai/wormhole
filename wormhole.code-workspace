@@ -17,16 +17,29 @@
     },
     "[jsonc]": {
       "editor.defaultFormatter": "biomejs.biome"
-    }
+    },
+    "exportall.config.folderListener": ["/packages/ui/src/ui"]
   },
   "folders": [
     {
       "name": "wormhole",
       "path": "."
     },
+
+    // packages
     {
       "name": "@wormhole/ui",
       "path": "./packages/ui"
+    },
+    {
+      "name": "@wormhole/api",
+      "path": "./packages/api"
+    },
+
+    // plugins
+    {
+      "name": "@wormhole/plugin-application",
+      "path": "./plugins/application"
     }
   ]
 }

@@ -90,6 +90,14 @@ export type Command = {
   id: string
 
   /**
+   * The plugin id of the command.
+   * This must be the same as the plugin id where this command is defined.
+   *
+   * @example "@hoge/plugin-name"
+   */
+  pluginId: string
+
+  /**
    * The name of the command.
    *
    * This is displayed to the user and used as the search term.

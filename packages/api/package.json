@@ -27,9 +27,9 @@
     "LICENSE"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+    "./*": {
+      "import": "./dist/*.js",
+      "types": "./dist/*.d.ts"
     }
   },
   "scripts": {
@@ -42,7 +42,10 @@
   "peerDependencies": {
     "@pandacss/dev": "^0.45.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@tauri-apps/api": ">=2.0.0-rc.0",
+    "@tauri-apps/plugin-store": ">=2.0.0-rc.0"
+  },
   "devDependencies": {
     "@tsconfig/node16": "16.1.3",
     "rimraf": "6.0.1",

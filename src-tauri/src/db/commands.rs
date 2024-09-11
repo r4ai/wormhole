@@ -9,10 +9,10 @@ use super::constants::DB_STORE_PATH;
 #[tauri::command]
 pub async fn db_search(
     app: tauri::AppHandle,
-    terms: String,
+    query: String,
     offset: isize,
     limit: isize,
-) -> Result<()> {
+) -> Result<Vec<Command>> {
     let stores = app
         .app_handle()
         .try_state::<StoreCollection<Wry>>()
@@ -26,5 +26,5 @@ pub async fn db_search(
         Ok(())
     })?;
 
-    Ok(())
+    Ok(vec![])
 }

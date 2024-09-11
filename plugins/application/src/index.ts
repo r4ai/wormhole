@@ -13,6 +13,7 @@ export const onEnable = async () => {
     const appName = (await path.basename(appPath)).replace(/\.[^.]+$/, "")
     await db.insert({
       kind: "application",
+      pluginId: "@wormhole/application",
       id: appPath,
       name: appName,
       action: {
