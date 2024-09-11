@@ -1,0 +1,26 @@
+{
+  "name": "@wormhole/plugin-application",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Rai"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "echo 'not implemented'"
+  },
+  "dependencies": {
+    "@tauri-apps/api": ">=2.0.0-rc.0",
+    "@tauri-apps/plugin-fs": ">=2.0.0-rc.0",
+    "@tauri-apps/plugin-shell": "^2.0.0-rc.1",
+    "@tauri-apps/plugin-store": ">=2.0.0-rc.0",
+    "@wormhole/api": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/bun": "1.1.8",
+    "tsup": "8.2.4",
+    "typescript": "5.5.4"
+  }
+}
