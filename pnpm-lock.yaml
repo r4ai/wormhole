@@ -110,8 +110,8 @@ importers:
         version: link:../styled-system
     devDependencies:
       '@chromatic-com/storybook':
-        specifier: 1.7.0
-        version: 1.7.0(react@18.3.1)
+        specifier: 1.9.0
+        version: 1.9.0(react@18.3.1)
       '@pandacss/dev':
         specifier: 0.45.2
         version: 0.45.2(typescript@5.5.4)
@@ -407,8 +407,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@chromatic-com/storybook@1.7.0':
-    resolution: {integrity: sha512-0aAkSaNsHaJL37/r+TIbpKjCouIysvoJno61LzUSs1xW4fpxF7gdr8xwIOONQjEsz2Fa0uFHXmzkFYcH6o8kmA==}
+  '@chromatic-com/storybook@1.9.0':
+    resolution: {integrity: sha512-vYQ+TcfktEE3GHnLZXHCzXF/sN9dw+KivH8a5cmPyd9YtQs7fZtHrEgsIjWpYycXiweKMo1Lm1RZsjxk8DH3rA==}
     engines: {node: '>=16.0.0', yarn: '>=1.22.18'}
 
   '@clack/core@0.3.4':
@@ -3710,7 +3710,7 @@ snapshots:
   '@biomejs/cli-win32-x64@1.8.3':
     optional: true
 
-  '@chromatic-com/storybook@1.7.0(react@18.3.1)':
+  '@chromatic-com/storybook@1.9.0(react@18.3.1)':
     dependencies:
       chromatic: 11.8.0
       filesize: 10.1.6
