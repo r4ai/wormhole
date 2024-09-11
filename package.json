@@ -18,7 +18,6 @@
     "check:write": "biome check --write ."
   },
   "license": "MIT",
-  "workspaces": ["packages/*", "plugins/*"],
   "imports": {
     "styled-system/*": "./styled-system/*"
   },
@@ -46,5 +45,5 @@
     "vite-plugin-solid": "2.10.2",
     "vite-tsconfig-paths": "5.0.1"
   },
-  "packageManager": "bun@1.1.27"
+  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
 }
