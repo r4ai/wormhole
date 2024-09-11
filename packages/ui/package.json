@@ -34,6 +34,7 @@
     "prepare": "panda codegen",
     "build": "tsup && panda cssgen -o dist/styles.css",
     "dev": "tsup --watch",
+    "test": "echo 'not implemented'",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

@@ -7,7 +7,9 @@
   },
   "type": "module",
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "echo 'not implemented'"
   },
   "dependencies": {
     "@tauri-apps/api": ">=2.0.0-rc.0",

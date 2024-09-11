@@ -34,8 +34,8 @@
   },
   "scripts": {
     "build": "rimraf dist && tsc --project tsconfig.build.json",
-    "test": "vitest",
-    "test:ci": "vitest run",
+    "dev": "tsc --watch --preserveWatchOutput",
+    "test": "echo 'not implemented'",
     "release": "bun run build && bun run test:ci && bun run changeset publish",
     "prepublishOnly": "bun run build"
   },

@@ -40,9 +40,11 @@
     "@tauri-apps/cli": ">=2.0.0-rc.0",
     "@types/node": "^22.5.0",
     "lefthook": "^1.7.14",
+    "turbo": "2.1.1",
     "typescript": "^5.2.2",
     "vite": "^5.3.1",
     "vite-plugin-solid": "^2.8.0",
     "vite-tsconfig-paths": "^5.0.1"
-  }
+  },
+  "packageManager": "bun@1.1.27"
 }
