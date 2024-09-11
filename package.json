@@ -36,15 +36,15 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@pandacss/dev": "^0.45.1",
-    "@tauri-apps/cli": ">=2.0.0-rc.0",
-    "@types/node": "^22.5.0",
-    "lefthook": "^1.7.14",
+    "@pandacss/dev": "0.45.2",
+    "@tauri-apps/cli": "2.0.0-rc.13",
+    "@types/node": "22.5.4",
+    "lefthook": "1.7.15",
     "turbo": "2.1.1",
-    "typescript": "^5.2.2",
-    "vite": "^5.3.1",
-    "vite-plugin-solid": "^2.8.0",
-    "vite-tsconfig-paths": "^5.0.1"
+    "typescript": "5.6.2",
+    "vite": "5.4.4",
+    "vite-plugin-solid": "2.10.2",
+    "vite-tsconfig-paths": "5.0.1"
   },
   "packageManager": "bun@1.1.27"
 }
