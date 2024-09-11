@@ -1,7 +1,8 @@
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
-#[derive(Serialize, Deserialize, Debug, Default)]
+#[derive(Serialize, Deserialize, Debug, Default, Clone)]
+#[serde(rename_all = "camelCase")]
 pub struct Plugin {
     pub id: String,
     pub name: String,
@@ -13,13 +14,15 @@ pub struct Plugin {
     pub hooks: Hooks,
 }
 
-#[derive(Serialize, Deserialize, Debug, Default)]
+#[derive(Serialize, Deserialize, Debug, Default, Clone)]
+#[serde(rename_all = "camelCase")]
 pub struct Hooks {
     pub on_enable: Option<Action>,
     pub on_disable: Option<Action>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "camelCase")]
 pub struct Command {
     #[serde(default)]
     pub kind: String,
@@ -45,7 +48,7 @@ impl Default for Command {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(tag = "lang")]
 pub enum Action {
     #[serde(rename = "javascript")]
@@ -58,7 +61,8 @@ impl Default for Action {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug, Default)]
+#[derive(Serialize, Deserialize, Debug, Default, Clone)]
+#[serde(rename_all = "camelCase")]
 pub struct JavaScriptAction {
     #[serde(default)]
     pub hotkeys: Vec<String>,

@@ -4,13 +4,16 @@ pub enum Error {
     Tauri(#[from] tauri::Error),
 
     #[error(transparent)]
+    TauriPluginStore(#[from] tauri_plugin_store::Error),
+
+    #[error(transparent)]
     Io(#[from] std::io::Error),
 
     #[error(transparent)]
     Anyhow(#[from] anyhow::Error),
 
     #[error(transparent)]
-    TauriPluginStore(#[from] tauri_plugin_store::Error),
+    SerdeJson(#[from] serde_json::Error),
 }
 
 /// See https://v2.tauri.app/develop/calling-rust/#error-handling

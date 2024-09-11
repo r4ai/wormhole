@@ -1,35 +1,27 @@
 import * as path from "@tauri-apps/api/path"
-import * as fs from "@tauri-apps/plugin-fs"
+import { open } from "@tauri-apps/plugin-shell"
+import { getApplications } from "./apps"
+import * as db from "./db"
 
-export const getApplications = async () => {
-  const applicationsDirs = [await path.desktopDir()]
-  const applications = (
-    await Promise.all(applicationsDirs.map(getApplicationsInDir))
-  ).flat()
-  return applications
+export const launch = async (appPath: string) => {
+  await open(appPath)
 }
 
-const getApplicationsInDir = async (dir: string) => {
-  const entries = await fs.readDir(dir)
-  const applications: string[] = []
-  const gettingApplications: Promise<string[]>[] = []
-  for (const entry of entries) {
-    const fullPath = await path.join(dir, entry.name)
-    if (entry.isDirectory) {
-      gettingApplications.push(getApplicationsInDir(fullPath))
-      continue
-    }
-    if (await isApplication(fullPath)) {
-      applications.push(fullPath)
-    }
+export const onEnable = async () => {
+  const apps = await getApplications()
+  for (const appPath of apps) {
+    const appName = (await path.basename(appPath)).replace(/\.[^.]+$/, "")
+    await db.insert({
+      kind: "application",
+      id: appPath,
+      name: appName,
+      action: {
+        lang: "javascript",
+        scriptFilePath: "index.js",
+        functionName: "launch",
+        args: [appPath],
+      },
+    })
   }
-  await Promise.all(gettingApplications).then((apps) =>
-    applications.push(...apps.flat()),
-  )
-  return applications
-}
-
-const isApplication = async (fullPath: string) => {
-  const extension = await path.extname(fullPath)
-  return ["exe", "url", "lnk"].includes(extension)
+  await db.save()
 }

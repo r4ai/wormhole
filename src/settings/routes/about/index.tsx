@@ -10,6 +10,7 @@ export const About = () => {
     console.log("path", path)
     const convertedPath = convertFileSrc(path)
     console.log("convertedPath", convertedPath)
+    /* @vite-ignore */
     const mod = await import(convertedPath)
     const { getApplications } = mod
     console.log("getApplications", await getApplications())
