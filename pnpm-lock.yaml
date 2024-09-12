@@ -116,8 +116,8 @@ importers:
         version: link:../styled-system
     devDependencies:
       '@chromatic-com/storybook':
-        specifier: 1.9.0
-        version: 1.9.0(react@18.3.1)
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
       '@pandacss/dev':
         specifier: 0.46.0
         version: 0.46.0(typescript@5.6.2)
@@ -414,8 +414,8 @@ packages:
     resolution: {integrity: sha512-oyq0qgFJDIIgLpyPwTv4j/sHX/MITatFzY3/b42VSldyZfnUC1lYBx5RwFvzBv1Sq4APOj2VCZO23pDRwy5kew==}
     engines: {node: '>=6.5'}
 
-  '@chromatic-com/storybook@1.9.0':
-    resolution: {integrity: sha512-vYQ+TcfktEE3GHnLZXHCzXF/sN9dw+KivH8a5cmPyd9YtQs7fZtHrEgsIjWpYycXiweKMo1Lm1RZsjxk8DH3rA==}
+  '@chromatic-com/storybook@2.0.1':
+    resolution: {integrity: sha512-BWedsjGOMXsWIWqDmdV9VV1lx2GSauBISu0a2ZbwL2BPN4yrBypsOOuQ8hKvtEfFlYetGmTafi1N5W1oR1CW3A==}
     engines: {node: '>=16.0.0', yarn: '>=1.22.18'}
 
   '@clack/core@0.3.4':
@@ -4119,7 +4119,7 @@ snapshots:
     dependencies:
       event-target-shim: 5.0.1
 
-  '@chromatic-com/storybook@1.9.0(react@18.3.1)':
+  '@chromatic-com/storybook@2.0.1(react@18.3.1)':
     dependencies:
       chromatic: 11.8.0
       filesize: 10.1.6
@@ -4147,14 +4147,13 @@ snapshots:
       '@floating-ui/dom': 1.6.10
       solid-js: 1.8.22
 
-  '@covector/apply@0.10.0(mocha@10.7.3)':
+  '@covector/apply@0.10.0':
     dependencies:
       '@covector/files': 0.8.0
       effection: 2.0.8(mocha@10.7.3)
       semver: 7.6.3
     transitivePeerDependencies:
       - encoding
-      - mocha
 
   '@covector/assemble@0.12.0(mocha@10.7.3)':
     dependencies:
@@ -4172,7 +4171,7 @@ snapshots:
       - mocha
       - supports-color
 
-  '@covector/changelog@0.12.0(mocha@10.7.3)':
+  '@covector/changelog@0.12.0':
     dependencies:
       '@covector/files': 0.8.0
       effection: 2.0.8(mocha@10.7.3)
@@ -4182,7 +4181,6 @@ snapshots:
       unified: 9.2.2
     transitivePeerDependencies:
       - encoding
-      - mocha
       - supports-color
 
   '@covector/command@0.8.0(mocha@10.7.3)':
@@ -4248,6 +4246,8 @@ snapshots:
     dependencies:
       effection: 2.0.8(mocha@10.7.3)
       mocha: 10.7.3
+    transitivePeerDependencies:
+      - encoding
 
   '@effection/process@2.1.4':
     dependencies:
@@ -4255,6 +4255,8 @@ snapshots:
       ctrlc-windows: 2.1.0
       effection: 2.0.8(mocha@10.7.3)
       shellwords: 0.1.1
+    transitivePeerDependencies:
+      - encoding
 
   '@effection/stream@2.0.6':
     dependencies:
@@ -5616,9 +5618,9 @@ snapshots:
   covector@0.12.3(mocha@10.7.3):
     dependencies:
       '@clack/prompts': 0.7.0
-      '@covector/apply': 0.10.0(mocha@10.7.3)
+      '@covector/apply': 0.10.0
       '@covector/assemble': 0.12.0(mocha@10.7.3)
-      '@covector/changelog': 0.12.0(mocha@10.7.3)
+      '@covector/changelog': 0.12.0
       '@covector/command': 0.8.0(mocha@10.7.3)
       '@covector/files': 0.8.0
       effection: 2.0.8(mocha@10.7.3)
