@@ -1,0 +1,118 @@
+name: version or publish
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  # required for npm provenance
+  id-token: write
+  # required to create the GitHub Release
+  contents: write
+  # required for creating the Version Packages Release
+  pull-requests: write
+
+jobs:
+  version-or-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    outputs:
+      change: ${{ steps.covector.outputs.change }}
+      commandRan: ${{ steps.covector.outputs.commandRan }}
+      successfulPublish: ${{ steps.covector.outputs.successfulPublish }}
+      releaseId: ${{ steps.covector.outputs.releaseId }}
+      packagesPublished: ${{ steps.covector.outputs.packagesPublished }}
+    steps:
+      - name: checkout the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # required for use of git history
+      - name: install pnpm
+        run: corepack enable
+      - name: install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .tool-versions
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+      - name: cargo login
+        run: cargo login ${{ secrets.CRATE_TOKEN }}
+      - name: git config
+        run: |
+          git config --global user.name "${{ github.event.pusher.name }}"
+          git config --global user.email "${{ github.event.pusher.email }}"
+      - name: covector version or publish (publish when no change files present)
+        uses: jbolda/covector/packages/action@covector-v0.12
+        id: covector
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          CARGO_AUDIT_OPTIONS: ${{ secrets.CARGO_AUDIT_OPTIONS }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          command: "version-or-publish"
+          createRelease: true
+          recognizeContributors: true
+      - name: Create Pull Request With Versions Bumped
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        if: steps.covector.outputs.commandRan == 'version'
+        with:
+          title: "Publish New Versions"
+          commit-message: "publish new versions"
+          labels: "version updates"
+          branch: "release"
+          body: ${{ steps.covector.outputs.change }}
+
+  build-app:
+    needs: version-or-publish
+    if: |
+      needs.version-or-publish.outputs.successfulPublish == 'true' &&
+      contains(needs.version-or-publish.outputs.packagesPublished, '@wormhole/app')
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: 'macos-latest' # for Arm based macs (M1 and above).
+            args: '--target aarch64-apple-darwin'
+          - platform: 'macos-latest' # for Intel based macs.
+            args: '--target x86_64-apple-darwin'
+          - platform: 'ubuntu-22.04' # for Tauri v1 you could replace this with ubuntu-20.04.
+            args: ''
+          - platform: 'windows-latest'
+            args: ''
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: checkout the repository
+        uses: actions/checkout@v4
+      - name: install pnpm
+        run: corepack enable
+      - name: install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .tool-versions
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+      - name: install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          # Those targets are only used on macos runners so it's in an `if` to slightly speed up windows and linux builds.
+          targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
+      - name: install dependencies (ubuntu only)
+        if: matrix.platform == 'ubuntu-22.04' # This must match the platform value defined above.
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+      - name: install frontend dependencies
+        run: pnpm install --frozen-lockfile
+      - name: build the app
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          releaseId: ${{ needs.version-or-publish.outputs.releaseId }}
+          releaseDraft: true
+          prerelease: false
+          args: ${{ matrix.args }}
