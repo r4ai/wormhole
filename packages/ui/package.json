@@ -14,24 +14,26 @@
   "files": ["dist", "src", "styled-system", "package.json", "README.md"],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "solid": "./dist/index.jsx",
-      "default": "./dist/index.js"
+      "types": "./src/index.d.ts",
+      "solid": "./src/index.jsx",
+      "default": "./src/index.js"
     },
-    "./styles.css": "./dist/styles.css",
+    "./styles.css": "./src/styles.css",
     "./*": {
-      "types": "./dist/*/index.d.ts",
-      "solid": "./dist/*/index.jsx",
-      "default": "./dist/*/index.js"
+      "types": "./src/*/index.d.ts",
+      "solid": "./src/*/index.jsx",
+      "default": "./src/*/index.js"
     },
     "./internal/*": {
-      "types": "./dist/internal/*/index.d.ts",
-      "solid": "./dist/internal/*/index.jsx",
-      "default": "./dist/internal/*/index.js"
+      "types": "./src/internal/*/index.d.ts",
+      "solid": "./src/internal/*/index.jsx",
+      "default": "./src/internal/*/index.js"
     }
   },
   "scripts": {
     "prepare": "panda codegen",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
     "build": "tsup && panda cssgen -o dist/styles.css",
     "dev": "tsup --watch",
     "test": "echo 'not implemented'",
@@ -43,8 +45,8 @@
   },
   "dependencies": {
     "@kobalte/core": "^0.13.5",
-    "@wormhole/styled-system": "workspace:*",
-    "@wormhole/api": "workspace:*"
+    "@wormhole/api": "workspace:*",
+    "@wormhole/styled-system": "workspace:*"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "1.9.0",
@@ -60,6 +62,7 @@
     "@storybook/testing-library": "0.2.2",
     "@storybook/theming": "8.3.0",
     "@types/bun": "1.1.9",
+    "clean-package": "2.2.0",
     "esbuild": "0.23.1",
     "esbuild-plugin-solid": "0.6.0",
     "fuse.js": "7.0.0",
