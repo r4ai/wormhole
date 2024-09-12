@@ -119,6 +119,14 @@ export type Command = {
   aliases?: string[]
 
   /**
+   * The path to the icon file.
+   * This is relative to the plugin directory.
+   *
+   * @example "assets/icon.png"
+   */
+  icon: string
+
+  /**
    * The action to perform when the command is executed.
    *
    * By default, the action is executed when:
