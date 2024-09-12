@@ -1,0 +1,157 @@
+{
+  "title": "Covector Config Schema",
+  "type": "object",
+  "properties": {
+    "changeFolder": { "type": "string" },
+    "gitSiteUrl": { "type": "string" },
+    "timeout": { "type": "number" },
+    "additionalBumpTypes": { "type": "array", "items": { "type": "string" } },
+    "defaultChangeTag": { "type": "string" },
+    "pkgManagers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "anyOf": [
+              { "type": "boolean" },
+              {
+                "anyOf": [
+                  { "type": "string" },
+                  {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "runFromRoot": { "type": "boolean" },
+                          "retries": {
+                            "type": "array",
+                            "items": { "type": "number" }
+                          },
+                          "dryRunCommand": { "type": ["boolean", "string"] },
+                          "pipe": { "type": "boolean" },
+                          "command": { "type": "string" }
+                        },
+                        "required": ["command"],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "runFromRoot": {
+                            "$ref": "#/properties/pkgManagers/additionalProperties/properties/version/anyOf/1/anyOf/1/anyOf/0/properties/runFromRoot"
+                          },
+                          "retries": {
+                            "$ref": "#/properties/pkgManagers/additionalProperties/properties/version/anyOf/1/anyOf/1/anyOf/0/properties/retries"
+                          },
+                          "dryRunCommand": {
+                            "$ref": "#/properties/pkgManagers/additionalProperties/properties/version/anyOf/1/anyOf/1/anyOf/0/properties/dryRunCommand"
+                          },
+                          "pipe": {
+                            "$ref": "#/properties/pkgManagers/additionalProperties/properties/version/anyOf/1/anyOf/1/anyOf/0/properties/pipe"
+                          },
+                          "use": { "type": "string", "enum": ["fetch:check"] },
+                          "options": {
+                            "type": "object",
+                            "properties": {
+                              "url": { "type": "string", "format": "uri" }
+                            },
+                            "required": ["url"],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": ["use", "options"],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/properties/pkgManagers/additionalProperties/properties/version/anyOf/1"
+                }
+              }
+            ]
+          },
+          "prepublish": {
+            "$ref": "#/properties/pkgManagers/additionalProperties/properties/version"
+          },
+          "publish": {
+            "$ref": "#/properties/pkgManagers/additionalProperties/properties/version"
+          },
+          "postpublish": {
+            "$ref": "#/properties/pkgManagers/additionalProperties/properties/version"
+          },
+          "errorOnVersionRange": { "type": "string" },
+          "releaseTag": {
+            "anyOf": [
+              { "type": "boolean", "const": false },
+              { "type": "string" }
+            ]
+          },
+          "assets": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "path": { "type": "string" },
+                    "name": { "type": "string" }
+                  },
+                  "required": ["path", "name"],
+                  "additionalProperties": false
+                }
+              },
+              { "type": "boolean", "const": false }
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "packages": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "#/properties/pkgManagers/additionalProperties/properties/version"
+          },
+          "prepublish": {
+            "$ref": "#/properties/pkgManagers/additionalProperties/properties/prepublish"
+          },
+          "publish": {
+            "$ref": "#/properties/pkgManagers/additionalProperties/properties/publish"
+          },
+          "postpublish": {
+            "$ref": "#/properties/pkgManagers/additionalProperties/properties/postpublish"
+          },
+          "errorOnVersionRange": {
+            "$ref": "#/properties/pkgManagers/additionalProperties/properties/errorOnVersionRange"
+          },
+          "releaseTag": {
+            "$ref": "#/properties/pkgManagers/additionalProperties/properties/releaseTag"
+          },
+          "assets": {
+            "$ref": "#/properties/pkgManagers/additionalProperties/properties/assets"
+          },
+          "manager": { "type": "string" },
+          "path": { "type": "string" },
+          "dependencies": { "type": "array", "items": { "type": "string" } },
+          "packageFileName": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "changeTags": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "required": ["packages"],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
