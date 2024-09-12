@@ -1,5 +1,5 @@
 {
-  "name": "wormhole",
+  "name": "@wormhole/app",
   "version": "0.1.0",
   "description": "",
   "type": "module",
@@ -38,6 +38,7 @@
     "@pandacss/dev": "0.45.2",
     "@tauri-apps/cli": "2.0.0-rc.13",
     "@types/node": "22.5.4",
+    "covector": "0.12.3",
     "lefthook": "1.7.15",
     "turbo": "2.1.1",
     "typescript": "5.6.2",

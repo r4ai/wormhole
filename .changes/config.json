@@ -1,0 +1,66 @@
+{
+  "gitSiteUrl": "https://github.com/r4ai/wormhole/",
+  "pkgManagers": {
+    "javascript": {
+      "version": true,
+      "getPublishedVersion": {
+        "use": "fetch:check",
+        "options": {
+          "url": "https://registry.npmjs.com/${ pkg.pkg }/${ pkg.pkgFile.version }"
+        }
+      },
+      "publish": ["npm publish --provenance --access public"],
+      "postpublish": [
+        "git tag ${ pkg.pkg }-v${ pkgFile.version }",
+        "git push --tags"
+      ]
+    },
+    "rust": {
+      "version": true,
+      "getPublishedVersion": {
+        "use": "fetch:check",
+        "options": {
+          "url": "https://crates.io/api/v1/crates/${ pkg.pkg }/${ pkg.pkgFile.version }"
+        }
+      },
+      "publish": ["cargo publish --no-verify --allow-dirty"],
+      "postpublish": [
+        "git tag ${ pkg.pkg }-v${ pkgFile.version }",
+        "git push --tags"
+      ]
+    },
+    "tauri": {
+      "version": true,
+      "getPublishedVersion": {
+        "use": "fetch:check",
+        "options": {
+          "url": "https://github.com/tauri-apps/tauri/releases/tag/${ pkg.pkg }/${ pkg.pkgFile.version }"
+        }
+      },
+      "postpublish": [
+        "git tag ${ pkg.pkg }-v${ pkgFile.version }",
+        "git push --tags"
+      ]
+    }
+  },
+  "packages": {
+    "wormhole": {
+      "path": ".",
+      "manager": "tauri"
+    },
+    "@wormhole/api": {
+      "path": "./packages/api",
+      "manager": "javascript"
+    },
+    "@wormhole/plugin-application": {
+      "path": "./plugins/application",
+      "manager": "javascript",
+      "dependencies": ["@wormhole/api"]
+    },
+    "@wormhole/ui": {
+      "path": "./packages/ui",
+      "manager": "javascript",
+      "dependencies": ["@wormhole/api"]
+    }
+  }
+}
