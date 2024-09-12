@@ -1,5 +1,4 @@
 {
-  "$schema": "./config.schema.json",
   "gitSiteUrl": "https://github.com/r4ai/wormhole/",
   "pkgManagers": {
     "javascript": {
