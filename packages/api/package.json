@@ -27,10 +27,7 @@
     "LICENSE"
   ],
   "exports": {
-    "./*": {
-      "import": "./src/*.js",
-      "types": "./src/*.d.ts"
-    }
+    "./*": "./src/*.ts"
   },
   "scripts": {
     "prepack": "clean-package",

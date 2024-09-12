@@ -13,22 +13,10 @@
   "type": "module",
   "files": ["dist", "src", "styled-system", "package.json", "README.md"],
   "exports": {
-    ".": {
-      "types": "./src/index.d.ts",
-      "solid": "./src/index.jsx",
-      "default": "./src/index.js"
-    },
+    ".": "./src/index.ts",
     "./styles.css": "./src/styles.css",
-    "./*": {
-      "types": "./src/*/index.d.ts",
-      "solid": "./src/*/index.jsx",
-      "default": "./src/*/index.js"
-    },
-    "./internal/*": {
-      "types": "./src/internal/*/index.d.ts",
-      "solid": "./src/internal/*/index.jsx",
-      "default": "./src/internal/*/index.js"
-    }
+    "./*": "./src/*/index.ts",
+    "./internal/*": "./src/internal/*/index.ts"
   },
   "scripts": {
     "prepare": "panda codegen",
