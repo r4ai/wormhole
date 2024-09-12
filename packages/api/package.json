@@ -39,7 +39,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
-    "@pandacss/dev": "^0.45.0"
+    "@pandacss/dev": "^0.45.0 || ^0.46.0"
   },
   "dependencies": {
     "@tauri-apps/api": ">=2.0.0-rc.0",
