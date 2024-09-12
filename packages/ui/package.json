@@ -61,7 +61,6 @@
     "@storybook/manager-api": "8.3.0",
     "@storybook/testing-library": "0.2.2",
     "@storybook/theming": "8.3.0",
-    "@types/bun": "1.1.9",
     "clean-package": "2.2.0",
     "esbuild": "0.23.1",
     "esbuild-plugin-solid": "0.6.0",

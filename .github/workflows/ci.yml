@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # required for use of git history
-      - name: install Node.js and Bun
+      - name: setup tools
         uses: jdx/mise-action@v2
         env:
           MISE_NODE_COREPACK: true
@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: checkout the repository
         uses: actions/checkout@v4
-      - name: install Node.js and Bun
+      - name: setup tools
         uses: jdx/mise-action@v2
         env:
           MISE_NODE_COREPACK: true
@@ -47,7 +47,7 @@ jobs:
     steps:
       - name: checkout the repository
         uses: actions/checkout@v4
-      - name: install Node.js and Bun
+      - name: setup tools
         uses: jdx/mise-action@v2
         env:
           MISE_NODE_COREPACK: true
@@ -61,7 +61,7 @@ jobs:
     steps:
       - name: checkout the repository
         uses: actions/checkout@v4
-      - name: install Node.js and Bun
+      - name: setup tools
         uses: jdx/mise-action@v2
         env:
           MISE_NODE_COREPACK: true
@@ -87,7 +87,7 @@ jobs:
     steps:
       - name: checkout the repository
         uses: actions/checkout@v4
-      - name: install Node.js and Bun
+      - name: setup tools
         uses: jdx/mise-action@v2
         env:
           MISE_NODE_COREPACK: true

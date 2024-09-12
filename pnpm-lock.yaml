@@ -151,9 +151,6 @@ importers:
       '@storybook/theming':
         specifier: 8.3.0
         version: 8.3.0(storybook@8.3.0)
-      '@types/bun':
-        specifier: 1.1.9
-        version: 1.1.9
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -203,9 +200,6 @@ importers:
         specifier: workspace:*
         version: link:../../packages/api
     devDependencies:
-      '@types/bun':
-        specifier: 1.1.9
-        version: 1.1.9
       tsup:
         specifier: 8.2.4
         version: 8.2.4(postcss@8.4.45)(typescript@5.6.2)
@@ -1458,9 +1452,6 @@ packages:
   '@types/body-parser@1.19.5':
     resolution: {integrity: sha512-fB3Zu92ucau0iQ0JMCFQE7b/dv8Ot07NI3KaZIkIUNXq82k4eBAqUaneXfleGY9JWskeS9y+u0nXMyspcuQrCg==}
 
-  '@types/bun@1.1.9':
-    resolution: {integrity: sha512-SXJRejXpmAc3qxyN/YS4/JGWEzLf4dDBa5fLtRDipQXHqNccuMU4EUYCooXNTsylG0DmwFQsGgEDHxZF+3DqRw==}
-
   '@types/connect@3.4.38':
     resolution: {integrity: sha512-K6uROf1LD88uDQqJCktA4yzL1YYAK6NgfsI0v/mTgyPKWsX1CnJ0XPSDhViejru1GcRkLWb8RlzFYJRqGUbaug==}
 
@@ -1497,9 +1488,6 @@ packages:
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
 
-  '@types/node@20.12.14':
-    resolution: {integrity: sha512-scnD59RpYD91xngrQQLGkE+6UrHUPzeKZWhhjBSa3HSkwjbQc38+q3RoIVEwxQGRw3M+j5hpNAM+lgV3cVormg==}
-
   '@types/node@22.5.4':
     resolution: {integrity: sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==}
 
@@ -1529,9 +1517,6 @@ packages:
 
   '@types/uuid@9.0.8':
     resolution: {integrity: sha512-jg+97EGIcY9AGHJJRaaPVgetKDsrTgbRjQ5Msgjh/DQKEFl0DtyRr/VCOyD1T2R1MNeWPK/u7JoGhlDZnKBAfA==}
-
-  '@types/ws@8.5.12':
-    resolution: {integrity: sha512-3tPRkv1EtkDpzlgyKyI8pGsGZAGPEaXeu0DOj5DI25Ja91bdAYddYHbADRYVrZMRbfW+1l5YwXVDKohDJNQxkQ==}
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
@@ -1704,9 +1689,6 @@ packages:
 
   buffer@6.0.3:
     resolution: {integrity: sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==}
-
-  bun-types@1.1.27:
-    resolution: {integrity: sha512-rHXAiIDefeMS/fleNM1rRDYqolJGNRdch3+AuCRwcZWaqTa1vjGBNsahH/HVV7Y82frllYhJomCVSEiHzLzkgg==}
 
   bundle-n-require@1.1.1:
     resolution: {integrity: sha512-EB2wFjXF106LQLe/CYnKCMCdLeTW47AtcEtUfiqAOgr2a08k0+YgRklur2aLfEYHlhz6baMskZ8L2U92Hh0vyA==}
@@ -3630,9 +3612,6 @@ packages:
   ufo@1.5.4:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
 
-  undici-types@5.26.5:
-    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
-
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
@@ -4176,18 +4155,17 @@ snapshots:
       '@floating-ui/dom': 1.6.10
       solid-js: 1.8.22
 
-  '@covector/apply@0.10.0(mocha@10.7.3)':
+  '@covector/apply@0.10.0':
     dependencies:
       '@covector/files': 0.8.0
       effection: 2.0.8(mocha@10.7.3)
       semver: 7.6.3
     transitivePeerDependencies:
       - encoding
-      - mocha
 
-  '@covector/assemble@0.12.0':
+  '@covector/assemble@0.12.0(mocha@10.7.3)':
     dependencies:
-      '@covector/command': 0.8.0
+      '@covector/command': 0.8.0(mocha@10.7.3)
       '@covector/files': 0.8.0
       effection: 2.0.8(mocha@10.7.3)
       js-yaml: 4.1.0
@@ -4198,6 +4176,7 @@ snapshots:
       unified: 9.2.2
     transitivePeerDependencies:
       - encoding
+      - mocha
       - supports-color
 
   '@covector/changelog@0.12.0':
@@ -4212,12 +4191,13 @@ snapshots:
       - encoding
       - supports-color
 
-  '@covector/command@0.8.0':
+  '@covector/command@0.8.0(mocha@10.7.3)':
     dependencies:
       '@effection/process': 2.1.4
       effection: 2.0.8(mocha@10.7.3)
     transitivePeerDependencies:
       - encoding
+      - mocha
 
   '@covector/files@0.8.0':
     dependencies:
@@ -5243,10 +5223,6 @@ snapshots:
       '@types/connect': 3.4.38
       '@types/node': 22.5.4
 
-  '@types/bun@1.1.9':
-    dependencies:
-      bun-types: 1.1.27
-
   '@types/connect@3.4.38':
     dependencies:
       '@types/node': 22.5.4
@@ -5287,10 +5263,6 @@ snapshots:
 
   '@types/node@17.0.45': {}
 
-  '@types/node@20.12.14':
-    dependencies:
-      undici-types: 5.26.5
-
   '@types/node@22.5.4':
     dependencies:
       undici-types: 6.19.8
@@ -5322,10 +5294,6 @@ snapshots:
   '@types/unist@3.0.3': {}
 
   '@types/uuid@9.0.8': {}
-
-  '@types/ws@8.5.12':
-    dependencies:
-      '@types/node': 22.5.4
 
   '@ungap/structured-clone@1.2.0': {}
 
@@ -5526,11 +5494,6 @@ snapshots:
       base64-js: 1.5.1
       ieee754: 1.2.1
 
-  bun-types@1.1.27:
-    dependencies:
-      '@types/node': 20.12.14
-      '@types/ws': 8.5.12
-
   bundle-n-require@1.1.1:
     dependencies:
       esbuild: 0.20.2
@@ -5663,10 +5626,10 @@ snapshots:
   covector@0.12.3(mocha@10.7.3):
     dependencies:
       '@clack/prompts': 0.7.0
-      '@covector/apply': 0.10.0(mocha@10.7.3)
-      '@covector/assemble': 0.12.0
+      '@covector/apply': 0.10.0
+      '@covector/assemble': 0.12.0(mocha@10.7.3)
       '@covector/changelog': 0.12.0
-      '@covector/command': 0.8.0
+      '@covector/command': 0.8.0(mocha@10.7.3)
       '@covector/files': 0.8.0
       effection: 2.0.8(mocha@10.7.3)
       globby: 11.1.0
@@ -7479,8 +7442,6 @@ snapshots:
   typescript@5.6.2: {}
 
   ufo@1.5.4: {}
-
-  undici-types@5.26.5: {}
 
   undici-types@6.19.8: {}
 

@@ -38,8 +38,8 @@
     "build": "rimraf dist && tsc --project tsconfig.build.json",
     "dev": "tsc --watch --preserveWatchOutput",
     "test": "echo 'not implemented'",
-    "release": "bun run build && bun run test:ci && bun run changeset publish",
-    "prepublishOnly": "bun run build"
+    "release": "pnpm run build && CI=true pnpm run test && pnpm run changeset publish",
+    "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
     "@pandacss/dev": "^0.45.0"
