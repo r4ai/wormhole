@@ -29,7 +29,7 @@
     "@wormhole/api": "workspace:*",
     "@wormhole/styled-system": "workspace:*",
     "@wormhole/ui": "workspace:*",
-    "lucide-solid": "^0.436.0",
+    "lucide-solid": "^0.440.0",
     "scule": "^1.3.0",
     "solid-js": "^1.7.8"
   },
