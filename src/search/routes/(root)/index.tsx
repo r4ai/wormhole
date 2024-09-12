@@ -1,6 +1,6 @@
 import { Store } from "@tauri-apps/plugin-store"
 import { LoadingSearchResults, SearchResults } from "@wormhole/ui/internal"
-import { createEffect, createSignal, Suspense, type Component } from "solid-js"
+import { type Component, Suspense, createEffect, createSignal } from "solid-js"
 
 export const Root: Component = () => {
   const [settings, setSettings] = createSignal<unknown>(null)
