@@ -31,7 +31,7 @@ jobs:
       - name: install pnpm
         run: corepack enable
       - name: install Node.js
-        uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
+        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:
           node-version-file: .tool-versions
           cache: pnpm
@@ -57,7 +57,7 @@ jobs:
           recognizeContributors: true
       - name: Create Pull Request With Versions Bumped
         id: cpr
-        uses: peter-evans/create-pull-request@8867c4aba1b742c39f8d0ba35429c2dfa4b6cb20 # v7
+        uses: peter-evans/create-pull-request@d121e62763d8cc35b5fb1710e887d6e69a52d3a4 # v7
         if: steps.covector.outputs.commandRan == 'version'
         with:
           title: "Publish New Versions"
@@ -92,7 +92,7 @@ jobs:
       - name: install pnpm
         run: corepack enable
       - name: install Node.js
-        uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
+        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:
           node-version-file: .tool-versions
           cache: pnpm
