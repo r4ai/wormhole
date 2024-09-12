@@ -25,6 +25,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # required for use of git history
+      - name: install pnpm
+        run: corepack enable
       - name: install Node.js
         uses: actions/setup-node@v3
         with:
