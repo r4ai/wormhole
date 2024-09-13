@@ -29,6 +29,7 @@ powershell_script = "1.1.0"
 indoc = "2.0.5"
 lnk = "0.5.1"
 configparser = "3.1.0"
+tauri-plugin-log = "2.0.0-rc"
 
 [dependencies.windows]
 version = "0.58.0"

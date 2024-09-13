@@ -13,6 +13,7 @@
     "store:allow-save",
     "store:allow-load",
     "store:allow-keys",
-    "store:allow-values"
+    "store:allow-values",
+    "log:default"
   ]
 }
