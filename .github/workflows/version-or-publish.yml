@@ -25,13 +25,13 @@ jobs:
       packagesPublished: ${{ steps.covector.outputs.packagesPublished }}
     steps:
       - name: checkout the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
         with:
           fetch-depth: 0 # required for use of git history
       - name: install pnpm
         run: corepack enable
       - name: install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:
           node-version-file: .tool-versions
           cache: pnpm
@@ -45,7 +45,7 @@ jobs:
       - name: install dependencies
         run: pnpm install --frozen-lockfile
       - name: covector version or publish (publish when no change files present)
-        uses: jbolda/covector/packages/action@covector-v0.12
+        uses: jbolda/covector/packages/action@77aeeacf85d994c6f9316354a8148c9b675d4f5d # covector-v0.12
         id: covector
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -57,7 +57,7 @@ jobs:
           recognizeContributors: true
       - name: Create Pull Request With Versions Bumped
         id: cpr
-        uses: peter-evans/create-pull-request@8867c4aba1b742c39f8d0ba35429c2dfa4b6cb20 # v7
+        uses: peter-evans/create-pull-request@d121e62763d8cc35b5fb1710e887d6e69a52d3a4 # v7
         if: steps.covector.outputs.commandRan == 'version'
         with:
           title: "Publish New Versions"
@@ -88,11 +88,11 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - name: checkout the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: install pnpm
         run: corepack enable
       - name: install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:
           node-version-file: .tool-versions
           cache: pnpm
@@ -110,7 +110,7 @@ jobs:
       - name: install frontend dependencies
         run: pnpm install --frozen-lockfile
       - name: build the app
-        uses: tauri-apps/tauri-action@v0
+        uses: tauri-apps/tauri-action@4ec5841d83495da72c665daa556e6f231b89ae06 # v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
