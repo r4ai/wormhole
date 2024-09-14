@@ -1,3 +1,4 @@
+import { convertFileSrc } from "@tauri-apps/api/core"
 import * as path from "@tauri-apps/api/path"
 import * as fs from "@tauri-apps/plugin-fs"
 import * as db from "@wormhole/api/db"
@@ -35,7 +36,7 @@ export const onEnable = async () => {
       pluginId: "@wormhole/application",
       id: appPath,
       name: appName,
-      icon: iconPath,
+      icon: convertFileSrc(iconPath),
       action: {
         lang: "javascript",
         scriptFilePath: "index.js",
