@@ -14,6 +14,9 @@ importers:
       '@tauri-apps/api':
         specifier: '>=2.0.0-rc.0'
         version: 2.0.0-rc.4
+      '@tauri-apps/plugin-log':
+        specifier: '>=2.0.0-rc.0'
+        version: 2.0.0-rc.1
       '@tauri-apps/plugin-shell':
         specifier: '>=2.0.0-rc.0'
         version: 2.0.0-rc.1
@@ -1403,6 +1406,9 @@ packages:
 
   '@tauri-apps/plugin-fs@2.0.0-rc.2':
     resolution: {integrity: sha512-TFjCfso3tN4b5s2EBjqP8N2gYrPh93Ds3VNKj8pCXv4wbvnItyfG0aHO0haUsedBOHQryDwv9vDAdPX6/T0a+g==}
+
+  '@tauri-apps/plugin-log@2.0.0-rc.1':
+    resolution: {integrity: sha512-+Tz0zo4FDtC/5j7neeIq5ievgKbUXBV2+X5HtbaR8ZZ2bcksCp8UqeHd6cyyN+FSk4qaU01LIGkuExtxk1h/FA==}
 
   '@tauri-apps/plugin-shell@2.0.0-rc.1':
     resolution: {integrity: sha512-JtNROc0rqEwN/g93ig5pK4cl1vUo2yn+osCpY9de64cy/d9hRzof7AuYOgvt/Xcd5VPQmlgo2AGvUh5sQRSR1A==}
@@ -4147,13 +4153,14 @@ snapshots:
       '@floating-ui/dom': 1.6.10
       solid-js: 1.8.22
 
-  '@covector/apply@0.10.0':
+  '@covector/apply@0.10.0(mocha@10.7.3)':
     dependencies:
       '@covector/files': 0.8.0
       effection: 2.0.8(mocha@10.7.3)
       semver: 7.6.3
     transitivePeerDependencies:
       - encoding
+      - mocha
 
   '@covector/assemble@0.12.0(mocha@10.7.3)':
     dependencies:
@@ -4171,7 +4178,7 @@ snapshots:
       - mocha
       - supports-color
 
-  '@covector/changelog@0.12.0':
+  '@covector/changelog@0.12.0(mocha@10.7.3)':
     dependencies:
       '@covector/files': 0.8.0
       effection: 2.0.8(mocha@10.7.3)
@@ -4181,6 +4188,7 @@ snapshots:
       unified: 9.2.2
     transitivePeerDependencies:
       - encoding
+      - mocha
       - supports-color
 
   '@covector/command@0.8.0(mocha@10.7.3)':
@@ -4246,8 +4254,6 @@ snapshots:
     dependencies:
       effection: 2.0.8(mocha@10.7.3)
       mocha: 10.7.3
-    transitivePeerDependencies:
-      - encoding
 
   '@effection/process@2.1.4':
     dependencies:
@@ -4255,8 +4261,6 @@ snapshots:
       ctrlc-windows: 2.1.0
       effection: 2.0.8(mocha@10.7.3)
       shellwords: 0.1.1
-    transitivePeerDependencies:
-      - encoding
 
   '@effection/stream@2.0.6':
     dependencies:
@@ -5130,6 +5134,10 @@ snapshots:
     dependencies:
       '@tauri-apps/api': 2.0.0-rc.4
 
+  '@tauri-apps/plugin-log@2.0.0-rc.1':
+    dependencies:
+      '@tauri-apps/api': 2.0.0-rc.4
+
   '@tauri-apps/plugin-shell@2.0.0-rc.1':
     dependencies:
       '@tauri-apps/api': 2.0.0-rc.4
@@ -5618,9 +5626,9 @@ snapshots:
   covector@0.12.3(mocha@10.7.3):
     dependencies:
       '@clack/prompts': 0.7.0
-      '@covector/apply': 0.10.0
+      '@covector/apply': 0.10.0(mocha@10.7.3)
       '@covector/assemble': 0.12.0(mocha@10.7.3)
-      '@covector/changelog': 0.12.0
+      '@covector/changelog': 0.12.0(mocha@10.7.3)
       '@covector/command': 0.8.0(mocha@10.7.3)
       '@covector/files': 0.8.0
       effection: 2.0.8(mocha@10.7.3)

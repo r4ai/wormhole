@@ -21,13 +21,12 @@ pub fn run() {
     #[cfg(debug_assertions)]
     let builder = tauri::Builder::default().plugin(tauri_plugin_devtools::init());
     #[cfg(not(debug_assertions))]
-    let builder = tauri::Builder::default();
+    let builder = tauri::Builder::default().plugin(tauri_plugin_log::Builder::new().build());
 
     builder
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_store::Builder::default().build())
-        .plugin(tauri_plugin_log::Builder::new().build())
         .invoke_handler(tauri::generate_handler![
             greet,
             db_search,
