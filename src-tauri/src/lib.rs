@@ -40,6 +40,7 @@ pub fn run() {
                 .try_state::<StoreCollection<Wry>>()
                 .ok_or(anyhow!("Store not found"))?;
             with_store(app.app_handle().clone(), stores, DB_STORE_PATH, |store| {
+                log::info!("Clearing DB store");
                 store.clear()?;
                 Ok(())
             })?;

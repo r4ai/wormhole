@@ -10,11 +10,14 @@ use crate::{db::schema::Plugin, utils::result::Result};
 use super::constants::{PLUGINS_KEY, SETTINGS_STORE_PATH};
 
 pub fn init_settings(app: tauri::AppHandle) -> Result<()> {
+    log::info!("Initializing settings");
     update_loaded_plugins(app.clone())?;
+    log::info!("Initialized settings");
     Ok(())
 }
 
 fn update_loaded_plugins(app: tauri::AppHandle) -> Result<()> {
+    log::info!("Updating loaded plugins");
     let app_data_dir = app.path().app_data_dir()?;
     let plugins_path = app_data_dir.join("plugins");
     let plugins = fs::read_dir(plugins_path)?;
@@ -56,5 +59,6 @@ fn update_loaded_plugins(app: tauri::AppHandle) -> Result<()> {
             },
         )?;
     }
+    log::info!("Updated loaded plugins");
     Ok(())
 }
