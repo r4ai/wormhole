@@ -20,10 +20,15 @@ pub async fn system_open(app: tauri::AppHandle, path: String) -> Result<()> {
 
 #[tauri::command]
 pub async fn system_extract_icon_from_executable(src: String, dest: String) -> Result<String> {
-    log::info!("Extracting icon from executable: {}", src);
+    Ok(extract_icon(&PathBuf::from(src), &PathBuf::from(dest))?
+        .to_str()
+        .unwrap()
+        .to_string())
+}
 
-    let src = PathBuf::from(src);
-    let dest = PathBuf::from(dest);
+fn extract_icon(src: &Path, dest: &Path) -> Result<PathBuf> {
+    log::info!("Extracting icon from executable: {}", src.display());
+
     let dest = if dest.is_dir() {
         dest.join(format!(
             "{}.jpeg",
@@ -33,7 +38,7 @@ pub async fn system_extract_icon_from_executable(src: String, dest: String) -> R
                 .unwrap()
         ))
     } else {
-        dest
+        dest.to_path_buf()
     };
 
     let src_extension = src
@@ -42,49 +47,27 @@ pub async fn system_extract_icon_from_executable(src: String, dest: String) -> R
         .to_str()
         .ok_or(anyhow!("failed to convert OsStr to str"))?;
     match src_extension {
+        "ico" | "jpeg" | "jpg" | "png" | "bmp" | "gif" => {
+            let mut dest = dest.clone();
+            dest.set_extension(src_extension);
+            fs::copy(src, &dest)?;
+            log::info!("Icon extracted to: {}", dest.display());
+            Ok(dest)
+        }
         "exe" => {
-            let icon_path = extract_icon_from_exe(&src, &dest)?;
-            Ok(icon_path.to_str().unwrap().to_string())
+            let icon_path = extract_icon_from_exe(src, &dest)?;
+            Ok(icon_path)
         }
         "lnk" => {
-            let icon_path = get_icon_path_from_lnk(&src)?;
-            let icon_path_extension = icon_path
-                .extension()
-                .ok_or(anyhow!("failed to get file extension"))?
-                .to_str()
-                .ok_or(anyhow!("failed to convert OsStr to str"))?;
+            let icon_path = get_icon_path_from_lnk(src)?;
             log::debug!("Icon path: {}", icon_path.display());
-            match icon_path_extension {
-                "exe" => {
-                    let icon_path = extract_icon_from_exe(&icon_path, &dest)?;
-                    Ok(icon_path.to_str().unwrap().to_string())
-                }
-                _ => {
-                    fs::copy(&icon_path, &dest)?;
-                    log::info!("Icon extracted to: {}", dest.display());
-                    Ok(dest.to_str().unwrap().to_string())
-                }
-            }
+            extract_icon(&icon_path, &dest)
         }
         "url" => {
-            let icon_path = get_icon_path_from_url(&src)?;
-            let icon_path_extension = icon_path
-                .extension()
-                .ok_or(anyhow!("failed to get file extension"))?
-                .to_str()
-                .ok_or(anyhow!("failed to convert OsStr to str"))?;
+            let icon_path = get_icon_path_from_url(src)?;
             log::debug!("Icon path: {}", icon_path.display());
-            match icon_path_extension {
-                "exe" => {
-                    let icon_path = extract_icon_from_exe(&icon_path, &dest)?;
-                    Ok(icon_path.to_str().unwrap().to_string())
-                }
-                _ => {
-                    fs::copy(&icon_path, &dest)?;
-                    log::info!("Icon extracted to: {}", dest.display());
-                    Ok(dest.to_str().unwrap().to_string())
-                }
-            }
+            let dest = extract_icon(&icon_path, &dest)?;
+            Ok(dest)
         }
         _ => {
             log::error!(
@@ -133,7 +116,6 @@ fn get_icon_path_from_url(file_path: &Path) -> Result<PathBuf> {
         .section(Some("InternetShortcut"))
         .ok_or(anyhow!("failed to get InternetShortcut section"))?;
     if let Some(icon_path) = internet_shortcut.get("IconFile") {
-        log::debug!("get_icon_path_from_url/icon_path: {}", icon_path);
         Ok(PathBuf::from(icon_path))
     } else if let Some(url) = internet_shortcut.get("URL") {
         Ok(PathBuf::from(url))
@@ -149,8 +131,8 @@ fn extract_icon_from_exe(src: &Path, dest: &Path) -> Result<PathBuf> {
     let script = formatdoc! {
         r#"
         Add-Type -AssemblyName System.Drawing
-        $icon = [System.Drawing.Icon]::ExtractAssociatedIcon("{}")
-        $icon.ToBitmap().Save("{}")
+        $icon = [System.Drawing.Icon]::ExtractAssociatedIcon(@"{}")
+        $icon.ToBitmap().Save(@"{}")
         "#,
         src.display(),
         dest.display()

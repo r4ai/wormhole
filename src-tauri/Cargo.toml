@@ -32,6 +32,7 @@ configparser = "3.1.0"
 tauri-plugin-log = "2.0.0-rc"
 log = "0.4.22"
 rust-ini = "0.21.1"
+image = "0.25.2"
 
 [dependencies.windows]
 version = "0.58.0"

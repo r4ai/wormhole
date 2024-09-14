@@ -23,6 +23,9 @@ pub enum Error {
 
     #[error(transparent)]
     Ini(#[from] ini::Error),
+
+    #[error(transparent)]
+    Image(#[from] image::ImageError),
 }
 
 /// See https://v2.tauri.app/develop/calling-rust/#error-handling
