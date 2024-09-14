@@ -20,6 +20,9 @@ pub enum Error {
 
     #[error(transparent)]
     Powershell(#[from] powershell_script::PsError),
+
+    #[error(transparent)]
+    Ini(#[from] ini::Error),
 }
 
 /// See https://v2.tauri.app/develop/calling-rust/#error-handling

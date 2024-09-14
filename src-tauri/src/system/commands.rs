@@ -1,6 +1,7 @@
 use crate::utils::result::{Error, Result};
 use anyhow::anyhow;
 use indoc::formatdoc;
+use ini::Ini;
 use lnk::ShellLink;
 use powershell_script::PsScriptBuilder;
 use std::{
@@ -52,6 +53,7 @@ pub async fn system_extract_icon_from_executable(src: String, dest: String) -> R
                 .ok_or(anyhow!("failed to get file extension"))?
                 .to_str()
                 .ok_or(anyhow!("failed to convert OsStr to str"))?;
+            log::debug!("Icon path: {}", icon_path.display());
             match icon_path_extension {
                 "exe" => {
                     let icon_path = extract_icon_from_exe(&icon_path, &dest)?;
@@ -59,6 +61,27 @@ pub async fn system_extract_icon_from_executable(src: String, dest: String) -> R
                 }
                 _ => {
                     fs::copy(&icon_path, &dest)?;
+                    log::info!("Icon extracted to: {}", dest.display());
+                    Ok(dest.to_str().unwrap().to_string())
+                }
+            }
+        }
+        "url" => {
+            let icon_path = get_icon_path_from_url(&src)?;
+            let icon_path_extension = icon_path
+                .extension()
+                .ok_or(anyhow!("failed to get file extension"))?
+                .to_str()
+                .ok_or(anyhow!("failed to convert OsStr to str"))?;
+            log::debug!("Icon path: {}", icon_path.display());
+            match icon_path_extension {
+                "exe" => {
+                    let icon_path = extract_icon_from_exe(&icon_path, &dest)?;
+                    Ok(icon_path.to_str().unwrap().to_string())
+                }
+                _ => {
+                    fs::copy(&icon_path, &dest)?;
+                    log::info!("Icon extracted to: {}", dest.display());
                     Ok(dest.to_str().unwrap().to_string())
                 }
             }
@@ -76,13 +99,19 @@ pub async fn system_extract_icon_from_executable(src: String, dest: String) -> R
     }
 }
 
-pub fn parse_lnk(file_path: &Path) -> Result<ShellLink> {
+fn parse_lnk(file_path: &Path) -> Result<ShellLink> {
     let shortcut = ShellLink::open(file_path).expect("failed to open lnk file");
     log::trace!("Parsed .lnk file: {:#?}", shortcut);
     Ok(shortcut)
 }
 
-pub fn get_icon_path_from_lnk(file_path: &Path) -> Result<PathBuf> {
+fn parse_url(file_path: &Path) -> Result<Ini> {
+    let config = Ini::load_from_file_noescape(file_path)?;
+    log::trace!("Parsed .url file: {:#?}", config);
+    Ok(config)
+}
+
+fn get_icon_path_from_lnk(file_path: &Path) -> Result<PathBuf> {
     let shortcut = parse_lnk(file_path)?;
     let icon_path = &shortcut.icon_location().as_ref();
     match icon_path {
@@ -95,6 +124,21 @@ pub fn get_icon_path_from_lnk(file_path: &Path) -> Result<PathBuf> {
                     .expect("failed to get relative path"),
             ),
         )?),
+    }
+}
+
+fn get_icon_path_from_url(file_path: &Path) -> Result<PathBuf> {
+    let config = parse_url(file_path)?;
+    let internet_shortcut = config
+        .section(Some("InternetShortcut"))
+        .ok_or(anyhow!("failed to get InternetShortcut section"))?;
+    if let Some(icon_path) = internet_shortcut.get("IconFile") {
+        log::debug!("get_icon_path_from_url/icon_path: {}", icon_path);
+        Ok(PathBuf::from(icon_path))
+    } else if let Some(url) = internet_shortcut.get("URL") {
+        Ok(PathBuf::from(url))
+    } else {
+        Err(Error::Anyhow(anyhow!("failed to get icon path")))
     }
 }
 
