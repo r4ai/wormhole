@@ -26,6 +26,9 @@ export const Root: Component = () => {
       }
       setDb(entries)
     }
+
+    console.log("Settings", settings())
+    console.log("DB", db())
   })
 
   return (

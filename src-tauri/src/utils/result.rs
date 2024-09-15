@@ -17,6 +17,15 @@ pub enum Error {
 
     #[error(transparent)]
     SerdeJson(#[from] serde_json::Error),
+
+    #[error(transparent)]
+    Powershell(#[from] powershell_script::PsError),
+
+    #[error(transparent)]
+    Ini(#[from] ini::Error),
+
+    #[error(transparent)]
+    Image(#[from] image::ImageError),
 }
 
 /// See https://v2.tauri.app/develop/calling-rust/#error-handling

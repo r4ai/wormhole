@@ -31,5 +31,5 @@ const getApplicationsInDir = async (dir: string) => {
 
 const isApplication = async (fullPath: string) => {
   const extension = await path.extname(fullPath)
-  return ["exe", "url", "lnk"].includes(extension)
+  return ["exe", "lnk", "url"].includes(extension)
 }

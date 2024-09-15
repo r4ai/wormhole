@@ -17,6 +17,7 @@ pub async fn db_search(
     offset: usize,
     limit: usize,
 ) -> Result<Vec<Command>> {
+    log::info!("Searching for query: {}", &query);
     let min_score: i64 = 1;
 
     let stores = app
@@ -45,5 +46,7 @@ pub async fn db_search(
             .collect::<Vec<Command>>())
     })?;
 
+    log::info!("Found {} results for query: {}", results.len(), &query);
+    log::trace!("Search results for query \"{}\": {:#?}", &query, &results);
     Ok(results)
 }
