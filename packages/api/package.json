@@ -43,7 +43,8 @@
   },
   "dependencies": {
     "@tauri-apps/api": ">=2.0.0-rc.0",
-    "@tauri-apps/plugin-store": ">=2.0.0-rc.0"
+    "@tauri-apps/plugin-store": ">=2.0.0-rc.0",
+    "solid-js": "^1.8.22"
   },
   "devDependencies": {
     "@tsconfig/node16": "16.1.3",

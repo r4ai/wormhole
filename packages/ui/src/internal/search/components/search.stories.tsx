@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from "storybook-solidjs"
 import type { SearchQuery } from "@wormhole/api/db"
 import type { Action, Command } from "@wormhole/api/schema"
 import Fuse from "fuse.js"
-import { useSearch } from "../contexts"
 import { Search, type SearchProps } from "./search"
 
 const meta = {
