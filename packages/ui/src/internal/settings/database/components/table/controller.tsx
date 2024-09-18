@@ -1,21 +1,9 @@
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger } from "@/ui/select"
 import { TextField } from "@kobalte/core/text-field"
 import { css, cx } from "@wormhole/styled-system/css"
 import { flex } from "@wormhole/styled-system/patterns"
 import type { JsxStyleProps } from "@wormhole/styled-system/types"
-import {
-  type Component,
-  createMemo,
-  createSignal,
-  onMount,
-  splitProps,
-} from "solid-js"
+import { type Component, splitProps } from "solid-js"
 import { useDatabase } from "../../contexts/database-context"
 import { useTable } from "./context"
 
