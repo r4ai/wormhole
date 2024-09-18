@@ -1,9 +1,12 @@
 import { Kbd } from "@/ui/kbd"
 import { Skelton } from "@/ui/skeleton"
+import { Skeleton } from "@/ui/skeleton/skeleton"
+import { Image } from "@kobalte/core/image"
 import { getActionFn } from "@wormhole/api/core"
 import { type SearchQuery, search } from "@wormhole/api/db"
 import type { Command } from "@wormhole/api/schema"
 import { css, cx } from "@wormhole/styled-system/css"
+import { hstack } from "@wormhole/styled-system/patterns"
 import type { JsxStyleProps } from "@wormhole/styled-system/types"
 import { ArrowDownIcon, ArrowUpIcon, SearchIcon } from "lucide-solid"
 import {
@@ -265,6 +268,7 @@ const LoadingSearchResult: Component<Partial<SearchResultPresenterProps>> = (
   props,
 ) => (
   <SearchResultPresenter
+    icon=""
     title={<Skelton class="h-4 w-2/3" />}
     kind="Command"
     action={() => {}}
@@ -310,6 +314,7 @@ const SearchResult: Component<SearchResultProps> = (props) => {
         local.class,
       )}
       kind={local.command.kind ?? "command"}
+      icon={local.command.icon}
       title={local.command.name}
       action={() => {
         local.beforeAction?.(local.command, local.index)
@@ -331,6 +336,7 @@ type SearchResultPresenterProps = Omit<
   css?: JsxStyleProps
   action: () => void
   kind: string
+  icon: string
   title: JSX.Element
 }
 
@@ -342,6 +348,7 @@ const SearchResultPresenter: Component<SearchResultPresenterProps> = (
     "css",
     "action",
     "kind",
+    "icon",
     "title",
   ])
 
@@ -370,7 +377,16 @@ const SearchResultPresenter: Component<SearchResultPresenterProps> = (
         )}
         {...rest}
       >
-        <div>
+        <div class={hstack()}>
+          <Image class={css({ padding: 0 })}>
+            <Image.Img
+              src={local.icon}
+              class={css({ height: "6", width: "6" })}
+            />
+            <Image.Fallback>
+              <Skeleton css={{ height: "6", width: "6", rounded: "full" }} />
+            </Image.Fallback>
+          </Image>
           <div class={css({ color: "foreground", fontWeight: "bold" })}>
             {local.title}
           </div>

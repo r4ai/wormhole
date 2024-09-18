@@ -34,9 +34,10 @@ export const Default: Story = {
   } satisfies SearchProps,
 }
 
-const genAppCommand = (name: string): Command => ({
+const genAppCommand = (name: string, icon = ""): Command => ({
   pluginId: "@wormhole/application",
   kind: "Application",
+  icon,
   id: name,
   name,
   action: {
@@ -48,49 +49,169 @@ const genAppCommand = (name: string): Command => ({
 })
 
 const commands: Command[] = [
-  genAppCommand("Spotify"),
-  genAppCommand("Visual Studio Code"),
-  genAppCommand("Google Chrome"),
-  genAppCommand("Slack"),
-  genAppCommand("Discord"),
-  genAppCommand("NeoVim"),
-  genAppCommand("Terminal"),
-  genAppCommand("Firefox"),
-  genAppCommand("Safari"),
-  genAppCommand("Edge"),
-  genAppCommand("Brave"),
-  genAppCommand("Vivaldi"),
-  genAppCommand("Steam"),
-  genAppCommand("Epic Games Launcher"),
-  genAppCommand("Origin"),
-  genAppCommand("Battle.net"),
-  genAppCommand("Notion"),
-  genAppCommand("Obsidian"),
-  genAppCommand("Microsoft Word"),
-  genAppCommand("Microsoft Excel"),
-  genAppCommand("Microsoft PowerPoint"),
-  genAppCommand("Microsoft Outlook"),
-  genAppCommand("Microsoft Teams"),
-  genAppCommand("Microsoft OneNote"),
-  genAppCommand("JetBrains IntelliJ IDEA"),
-  genAppCommand("JetBrains WebStorm"),
-  genAppCommand("JetBrains PyCharm"),
-  genAppCommand("JetBrains Rider"),
-  genAppCommand("JetBrains DataGrip"),
-  genAppCommand("JetBrains AppCode"),
-  genAppCommand("JetBrains CLion"),
-  genAppCommand("JetBrains GoLand"),
-  genAppCommand("JetBrains RubyMine"),
-  genAppCommand("JetBrains PHPStorm"),
-  genAppCommand("JetBrains Android Studio"),
+  genAppCommand(
+    "Spotify",
+    "https://api.iconify.design/simple-icons:spotify.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Visual Studio Code",
+    "https://api.iconify.design/simple-icons:visualstudiocode.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Google Chrome",
+    "https://api.iconify.design/simple-icons:googlechrome.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Slack",
+    "https://api.iconify.design/simple-icons:slack.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Discord",
+    "https://api.iconify.design/simple-icons:discord.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "NeoVim",
+    "https://api.iconify.design/simple-icons:neovim.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Terminal",
+    "https://api.iconify.design/simple-icons:windowsterminal.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Firefox",
+    "https://api.iconify.design/simple-icons:firefoxbrowser.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Safari",
+    "https://api.iconify.design/simple-icons:safari.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Edge",
+    "https://api.iconify.design/simple-icons:microsoftedge.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Brave",
+    "https://api.iconify.design/simple-icons:brave.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Vivaldi",
+    "https://api.iconify.design/simple-icons:vivaldi.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Steam",
+    "https://api.iconify.design/simple-icons:steam.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Epic Games Launcher",
+    "https://api.iconify.design/simple-icons:epicgames.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Origin",
+    "https://api.iconify.design/simple-icons:origin.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Battle.net",
+    "https://api.iconify.design/simple-icons:battledotnet.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Notion",
+    "https://api.iconify.design/simple-icons:notion.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Obsidian",
+    "https://api.iconify.design/simple-icons:obsidian.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Microsoft Word",
+    "https://api.iconify.design/simple-icons:microsoftword.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Microsoft Excel",
+    "https://api.iconify.design/simple-icons:microsoftexcel.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Microsoft PowerPoint",
+    "https://api.iconify.design/simple-icons:microsoftpowerpoint.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Microsoft Outlook",
+    "https://api.iconify.design/simple-icons:microsoftoutlook.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Microsoft Teams",
+    "https://api.iconify.design/simple-icons:microsoftteams.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Microsoft OneNote",
+    "https://api.iconify.design/simple-icons:microsoftonenote.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "JetBrains IntelliJ IDEA",
+    "https://api.iconify.design/simple-icons:jetbrains.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "JetBrains WebStorm",
+    "https://api.iconify.design/simple-icons:jetbrains.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "JetBrains PyCharm",
+    "https://api.iconify.design/simple-icons:jetbrains.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "JetBrains Rider",
+    "https://api.iconify.design/simple-icons:jetbrains.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "JetBrains DataGrip",
+    "https://api.iconify.design/simple-icons:jetbrains.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "JetBrains AppCode",
+    "https://api.iconify.design/simple-icons:jetbrains.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "JetBrains CLion",
+    "https://api.iconify.design/simple-icons:jetbrains.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "JetBrains GoLand",
+    "https://api.iconify.design/simple-icons:jetbrains.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "JetBrains RubyMine",
+    "https://api.iconify.design/simple-icons:jetbrains.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "JetBrains PHPStorm",
+    "https://api.iconify.design/simple-icons:jetbrains.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "JetBrains Android Studio",
+    "https://api.iconify.design/simple-icons:jetbrains.svg?color=%23888888",
+  ),
   genAppCommand("Overwatch"),
-  genAppCommand("Valorant"),
-  genAppCommand("League of Legends"),
-  genAppCommand("Dota 2"),
-  genAppCommand("Counter-Strike: Global Offensive"),
+  genAppCommand(
+    "Valorant",
+    "https://api.iconify.design/simple-icons:valorant.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "League of Legends",
+    "https://api.iconify.design/simple-icons:leagueoflegends.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Dota 2",
+    "https://api.iconify.design/simple-icons:dota2.svg?color=%23888888",
+  ),
+  genAppCommand(
+    "Counter-Strike: Global Offensive",
+    "https://api.iconify.design/simple-icons:counterstrike.svg?color=%23888888",
+  ),
   genAppCommand("Apex Legends"),
   genAppCommand("Fortnite"),
-  genAppCommand("Minecraft"),
+  genAppCommand(
+    "Minecraft",
+    "https://api.iconify.design/simple-icons:minecraft.svg?color=%23888888",
+  ),
   genAppCommand("Terraria"),
   genAppCommand("Stardew Valley"),
   genAppCommand("Among Us"),

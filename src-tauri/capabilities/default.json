@@ -8,11 +8,13 @@
     "shell:allow-open",
     "fs:default",
     "fs:scope-desktop-recursive",
+    "fs:scope-appdata-recursive",
     "store:allow-get",
     "store:allow-set",
     "store:allow-save",
     "store:allow-load",
     "store:allow-keys",
-    "store:allow-values"
+    "store:allow-values",
+    "log:default"
   ]
 }
