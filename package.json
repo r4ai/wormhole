@@ -41,7 +41,7 @@
     "@types/node": "22.5.4",
     "covector": "0.12.3",
     "lefthook": "1.7.15",
-    "turbo": "2.1.1",
+    "turbo": "2.1.2",
     "typescript": "5.6.2",
     "vite": "5.4.6",
     "vite-plugin-solid": "2.10.2",
