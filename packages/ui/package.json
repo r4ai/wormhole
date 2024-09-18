@@ -32,7 +32,9 @@
     "solid-js": "^1.8.21"
   },
   "dependencies": {
+    "@corvu/resizable": "0.2.3",
     "@kobalte/core": "^0.13.5",
+    "@tanstack/solid-table": "^8.20.5",
     "@wormhole/api": "workspace:*",
     "@wormhole/styled-system": "workspace:*"
   },

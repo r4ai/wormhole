@@ -30,3 +30,8 @@ export const parsePluginId = (pluginId: string) => {
   const [scope, name] = pluginId.match(/@(.+?)\/(.+)/)?.slice(1) ?? []
   return { scope, name }
 }
+
+export const createPluginId = <Scope extends string, Name extends string>(
+  scope: Scope,
+  name: Name,
+): `@${Scope}/${Name}` => `@${scope}/${name}`

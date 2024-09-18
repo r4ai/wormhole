@@ -1,7 +1,13 @@
 import { A } from "@solidjs/router"
 import { css, sva } from "@wormhole/styled-system/css"
 import { Button } from "@wormhole/ui"
-import { BlocksIcon, CodeIcon, InfoIcon, SettingsIcon } from "lucide-solid"
+import {
+  BlocksIcon,
+  CodeIcon,
+  DatabaseIcon,
+  InfoIcon,
+  SettingsIcon,
+} from "lucide-solid"
 import type { Component, JSX } from "solid-js"
 
 export const navbar = sva({
@@ -48,6 +54,10 @@ export const NavBar: Component = () => {
       <NavBarItem href="/general">
         <SettingsIcon size={20} />
         General
+      </NavBarItem>
+      <NavBarItem href="/database">
+        <DatabaseIcon size={20} />
+        Database
       </NavBarItem>
       <NavBarItem href="/plugins">
         <BlocksIcon size={20} />
