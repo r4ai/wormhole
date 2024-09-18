@@ -3,8 +3,8 @@ import * as SelectPrimitive from "@kobalte/core/select"
 import { css, cx } from "@wormhole/styled-system/css"
 import type { JsxStyleProps } from "@wormhole/styled-system/types"
 import { CheckIcon, ChevronsUpDownIcon } from "lucide-solid"
-import type { ParentProps, ValidComponent } from "solid-js"
-import { splitProps } from "solid-js"
+import type { JSX, ParentProps, ValidComponent } from "solid-js"
+import { mergeProps, splitProps } from "solid-js"
 
 export type SelectProps<T> = SelectPrimitive.SelectRootProps<T>
 
@@ -51,8 +51,6 @@ export const SelectTrigger = <T extends ValidComponent = "button">(
             paddingX: "3",
             paddingY: "2",
             fontSize: "sm",
-            shadow: "sm",
-            transition: "shadow",
             outlineOffset: "1",
             outlineColor: "outline",
             cursor: "pointer",
@@ -145,17 +143,26 @@ export const SelectContent = <T extends ValidComponent = "div">(
 }
 
 export type SelectItemProps<T extends ValidComponent = "li"> = ParentProps<
-  SelectPrimitive.SelectItemProps<T> & { class?: string; css?: JsxStyleProps }
+  SelectPrimitive.SelectItemProps<T> & {
+    class?: string
+    css?: JsxStyleProps
+    forceMountIndicator?: boolean
+    checkIcon?: JSX.Element
+  }
 >
 
 export const SelectItem = <T extends ValidComponent = "li">(
   props: PolymorphicProps<T, SelectItemProps<T>>,
 ) => {
-  const [local, rest] = splitProps(props as SelectItemProps, [
-    "class",
-    "css",
-    "children",
-  ])
+  const [local, rest] = splitProps(
+    mergeProps(
+      {
+        checkIcon: <CheckIcon />,
+      },
+      props as SelectItemProps,
+    ),
+    ["class", "css", "forceMountIndicator", "checkIcon", "children"],
+  )
 
   return (
     <SelectPrimitive.Item
@@ -189,6 +196,7 @@ export const SelectItem = <T extends ValidComponent = "li">(
       {...rest}
     >
       <SelectPrimitive.ItemIndicator
+        forceMount={local.forceMountIndicator}
         class={css({
           position: "absolute",
           right: "2",
@@ -199,7 +207,7 @@ export const SelectItem = <T extends ValidComponent = "li">(
           justifyContent: "center",
         })}
       >
-        <CheckIcon />
+        {local.checkIcon}
       </SelectPrimitive.ItemIndicator>
       <SelectPrimitive.ItemLabel>{local.children}</SelectPrimitive.ItemLabel>
     </SelectPrimitive.Item>
