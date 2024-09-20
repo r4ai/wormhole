@@ -15,7 +15,8 @@
         "label": "settings",
         "url": "/src/search/index.html",
         "width": 800,
-        "height": 600
+        "height": 600,
+        "decorations": false
       },
       {
         "title": "wormhole",

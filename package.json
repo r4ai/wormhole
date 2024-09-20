@@ -24,9 +24,10 @@
   "dependencies": {
     "@solidjs/router": "^0.14.3",
     "@tauri-apps/api": ">=2.0.0-rc.0",
+    "@tauri-apps/plugin-global-shortcut": "2.0.0-rc.1",
+    "@tauri-apps/plugin-log": "2.0.0-rc.1",
     "@tauri-apps/plugin-shell": ">=2.0.0-rc.0",
     "@tauri-apps/plugin-store": ">=2.0.0-rc.0",
-    "@tauri-apps/plugin-log": ">=2.0.0-rc.0",
     "@wormhole/api": "workspace:*",
     "@wormhole/styled-system": "workspace:*",
     "@wormhole/ui": "workspace:*",

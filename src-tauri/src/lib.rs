@@ -34,6 +34,10 @@ pub fn run() {
             system_extract_icon_from_executable
         ])
         .setup(|app| {
+            #[cfg(desktop)]
+            app.handle()
+                .plugin(tauri_plugin_global_shortcut::Builder::new().build())?;
+
             // Clear the DB store on startup
             let stores = app
                 .app_handle()

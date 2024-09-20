@@ -15,6 +15,17 @@
     "store:allow-load",
     "store:allow-keys",
     "store:allow-values",
-    "log:default"
+    "store:allow-entries",
+    "log:default",
+    "core:window:default",
+    "core:window:allow-start-dragging",
+    "core:window:allow-center",
+    "core:window:allow-show",
+    "core:window:allow-hide",
+    "global-shortcut:default",
+    "global-shortcut:allow-is-registered",
+    "global-shortcut:allow-register",
+    "global-shortcut:allow-unregister",
+    "global-shortcut:allow-unregister-all"
   ]
 }
