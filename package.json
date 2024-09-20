@@ -36,7 +36,7 @@
     "solid-js": "^1.7.8"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.0",
+    "@biomejs/biome": "1.9.2",
     "@pandacss/dev": "0.46.0",
     "@tauri-apps/cli": "2.0.0-rc.13",
     "@types/node": "22.5.4",
