@@ -12,16 +12,19 @@
     "windows": [
       {
         "title": "wormhole",
-        "label": "settings",
+        "label": "search",
         "url": "/src/search/index.html",
         "width": 800,
         "height": 600,
+        "resizable": false,
         "decorations": false,
-        "alwaysOnTop": true
+        "alwaysOnTop": true,
+        "center": true,
+        "skipTaskbar": true
       },
       {
         "title": "wormhole",
-        "label": "search",
+        "label": "settings",
         "url": "/src/settings/index.html"
       }
     ],
