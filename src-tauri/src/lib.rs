@@ -3,6 +3,9 @@ mod settings;
 mod system;
 mod utils;
 
+#[cfg(desktop)]
+mod tray;
+
 use anyhow::anyhow;
 use db::{commands::db_search, constants::DB_STORE_PATH};
 use settings::store::init_settings;
@@ -34,6 +37,13 @@ pub fn run() {
             system_extract_icon_from_executable
         ])
         .setup(|app| {
+            #[cfg(desktop)]
+            {
+                app.handle()
+                    .plugin(tauri_plugin_global_shortcut::Builder::new().build())?;
+                tray::create_tray(app.app_handle())?;
+            }
+
             // Clear the DB store on startup
             let stores = app
                 .app_handle()
@@ -46,6 +56,13 @@ pub fn run() {
             })?;
 
             init_settings(app.app_handle().clone())?;
+
+            let search_window = app.get_webview_window("search").unwrap();
+            let settings_window = app.get_webview_window("settings").unwrap();
+
+            search_window.hide()?;
+            settings_window.hide()?;
+
             Ok(())
         })
         .run(tauri::generate_context!())

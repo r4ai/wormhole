@@ -5,12 +5,15 @@ use serde_json::json;
 use tauri::{Manager, Wry};
 use tauri_plugin_store::{with_store, StoreCollection};
 
-use crate::{db::schema::Plugin, utils::result::Result};
+use crate::{
+    db::schema::Plugin, settings::constants::SHORTCUTS_TOGGLE_WINDOW_KEY, utils::result::Result,
+};
 
 use super::constants::{PLUGINS_KEY, SETTINGS_STORE_PATH};
 
 pub fn init_settings(app: tauri::AppHandle) -> Result<()> {
     log::info!("Initializing settings");
+    init_default_settings(app.clone())?;
     update_loaded_plugins(app.clone())?;
     log::info!("Initialized settings");
     Ok(())
@@ -60,5 +63,24 @@ fn update_loaded_plugins(app: tauri::AppHandle) -> Result<()> {
         )?;
     }
     log::info!("Updated loaded plugins");
+    Ok(())
+}
+
+fn init_default_settings(app: tauri::AppHandle) -> Result<()> {
+    log::info!("Initializing default settings");
+    let stores = app
+        .app_handle()
+        .try_state::<StoreCollection<Wry>>()
+        .ok_or(anyhow!("Store not found"))?;
+    with_store(app.clone(), stores, SETTINGS_STORE_PATH, |store| {
+        if !store.has(SHORTCUTS_TOGGLE_WINDOW_KEY) {
+            store.insert(
+                SHORTCUTS_TOGGLE_WINDOW_KEY.to_string(),
+                json!(["CommandOrControl+Space"]),
+            )?;
+        }
+        Ok(())
+    })?;
+    log::info!("Initialized default settings");
     Ok(())
 }
