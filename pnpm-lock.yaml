@@ -36,8 +36,8 @@ importers:
         specifier: workspace:*
         version: link:packages/ui
       lucide-solid:
-        specifier: ^0.440.0
-        version: 0.440.0(solid-js@1.8.22)
+        specifier: ^0.453.0
+        version: 0.453.0(solid-js@1.8.22)
       scule:
         specifier: ^1.3.0
         version: 1.3.0
@@ -189,7 +189,7 @@ importers:
         version: 1.0.0-beta.2(babel-preset-solid@1.8.22(@babel/core@7.25.2))(solid-js@1.9.1)
       storybook-solidjs-vite:
         specifier: 1.0.0-beta.2
-        version: 1.0.0-beta.2(storybook@8.3.2)(typescript@5.6.2)(vite@5.4.7(@types/node@22.5.4)(lightningcss@1.25.1))
+        version: 1.0.0-beta.2(storybook@8.3.2)(vite@5.4.7(@types/node@22.5.4)(lightningcss@1.25.1))
       tsup:
         specifier: 8.3.0
         version: 8.3.0(postcss@8.4.47)(typescript@5.6.2)
@@ -1318,21 +1318,11 @@ packages:
       react-dom:
         optional: true
 
-  '@storybook/builder-vite@8.4.0-alpha.3':
-    resolution: {integrity: sha512-KF4tpziUOBcqnTUNtmPE//ixqfFkjxAs1CT6+lDhDvCRtIIe58xZBDyVCQohJEaLgXAaVcZOGVBooH/ah5j8WQ==}
+  '@storybook/builder-vite@8.4.0-alpha.7':
+    resolution: {integrity: sha512-Q8as4xL7vrJtrZrukGopXGmrlPxXukLhmRIKT0INFJTBtEgHy3Gk4OEe5MOGIu50yMcHDBrx2+3ijAOzFsNw0g==}
     peerDependencies:
-      '@preact/preset-vite': '*'
-      storybook: ^8.4.0-alpha.3
-      typescript: '>= 4.3.x'
+      storybook: ^8.4.0-alpha.7
       vite: ^4.0.0 || ^5.0.0
-      vite-plugin-glimmerx: '*'
-    peerDependenciesMeta:
-      '@preact/preset-vite':
-        optional: true
-      typescript:
-        optional: true
-      vite-plugin-glimmerx:
-        optional: true
 
   '@storybook/core@8.3.2':
     resolution: {integrity: sha512-DVXs9AZzXHUKEhi5hKQ4gmH2ODFFM9hmd3odnlqenIINxGynbRtAGzU8pMhjrTRSrnlLr1liGew1IcY+hwkFjQ==}
@@ -1342,10 +1332,10 @@ packages:
     peerDependencies:
       storybook: ^8.3.2
 
-  '@storybook/csf-plugin@8.4.0-alpha.3':
-    resolution: {integrity: sha512-WKbkUFIyqzzBwcB4VbWyR1XiuRMDLfmLEZi7z2LCsMbOLiNlXfW/6n49hmo5sT+LYcIQXa9lyZzRoObCJswZhg==}
+  '@storybook/csf-plugin@8.4.0-alpha.7':
+    resolution: {integrity: sha512-CndBjAxBqfjY19ZK22W80HEGDxJlLOTTl2JaIH0me7lTu46jXWfr4ly4NaaEHv2e2Tkzmk7hmK32g89laV/7ig==}
     peerDependencies:
-      storybook: ^8.4.0-alpha.3
+      storybook: ^8.4.0-alpha.7
 
   '@storybook/csf@0.1.11':
     resolution: {integrity: sha512-dHYFQH3mA+EtnCkHXzicbLgsvzYjcDJ1JWsogbItZogkPHgSJM/Wr71uMkcvw8v9mmCyP4NpXJuu6bPoVsOnzg==}
@@ -1548,9 +1538,6 @@ packages:
 
   '@types/express@4.17.21':
     resolution: {integrity: sha512-ejlPM315qwLpaQlQDTjPdsUFSc6ZsP4AN6AlWnogPjQ7CVi7PYF3YVz+CY3jE2pwYf7E/7HlDAN0rV2GxTG0HQ==}
-
-  '@types/find-cache-dir@3.2.1':
-    resolution: {integrity: sha512-frsJrz2t/CeGifcu/6uRo4b+SzAwT4NYCVPu1GN8IB9XTzrpPkGuV0tmh9mN+/L0PklAlsC3u5Fxt0ju00LXIw==}
 
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
@@ -1914,9 +1901,6 @@ packages:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
 
-  commondir@1.0.1:
-    resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
-
   confbox@0.1.7:
     resolution: {integrity: sha512-uJcB/FKZtBMCJpK8MQji6bJHgu1tixKPxRLeGkNzBoOZzpnZUJm0jm2/sBDWcuBx1dYgxV4JU+g5hmNxCyAmdA==}
 
@@ -2095,9 +2079,6 @@ packages:
   es-get-iterator@1.1.3:
     resolution: {integrity: sha512-sPZmqHBe6JIiTfN5q2pEi//TwxmAFHwj/XEuYjTuse78i8KxaqMTTzxPoFKuzRpDpTJ+0NAbpfenkmH2rePtuw==}
 
-  es-module-lexer@1.5.4:
-    resolution: {integrity: sha512-MVNK56NiMrOwitFB7cqDwq0CQutbw+0BvLshJSse0MUNU+y1FC3bUS/AQg7oUng+/wKrrki7JfmwtVHkVfPLlw==}
-
   esbuild-plugin-solid@0.6.0:
     resolution: {integrity: sha512-V1FvDALwLDX6K0XNYM9CMRAnMzA0+Ecu55qBUT9q/eAJh1KIDsTMFoOzMSgyHqbOfvrVfO3Mws3z7TW2GVnIZA==}
     peerDependencies:
@@ -2213,14 +2194,6 @@ packages:
   finalhandler@1.3.1:
     resolution: {integrity: sha512-6BN9trH7bp3qvnrRyzsBz+g3lZxTNZTbVO2EV1CS0WIcDbawYVdYvGflME/9QP0h0pYlCDBCTjYa9nZzMDpyxQ==}
     engines: {node: '>= 0.8'}
-
-  find-cache-dir@3.3.2:
-    resolution: {integrity: sha512-wXZV5emFEjrridIgED11OoUKLxiYjAcqot/NJdAkOhlJ+vGzwhOAfcG5OX1jP+S0PcjEn8bdMJv+g2jwQ3Onig==}
-    engines: {node: '>=8'}
-
-  find-up@4.1.0:
-    resolution: {integrity: sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==}
-    engines: {node: '>=8'}
 
   find-up@5.0.0:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
@@ -2729,10 +2702,6 @@ packages:
     resolution: {integrity: sha512-IXO6OCs9yg8tMKzfPZ1YmheJbZCiEsnBdcB03l0OcfK9prKnJb96siuHCr5Fl37/yo9DnKU+TLpxzTUspw9shg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  locate-path@5.0.0:
-    resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
-    engines: {node: '>=8'}
-
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
@@ -2779,8 +2748,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-solid@0.440.0:
-    resolution: {integrity: sha512-y1f0Re8V8BHiJyGQqQ+Cb4rq3Z7xcmkkeKLRNbynANK+ojHISy1jAmMxqohO/CncJMmEcIXbo+OW4PR1DZ33MA==}
+  lucide-solid@0.453.0:
+    resolution: {integrity: sha512-+yaTXOPSnfXpOCs5DwRyEya9MGRS3ZlHvz/cWOgDDqyZ/5/B6xx8C4p2ihT0i6Gb1+xe9b9pjlmUHfv2yq6t0g==}
     peerDependencies:
       solid-js: ^1.4.7
 
@@ -2790,10 +2759,6 @@ packages:
 
   magic-string@0.30.11:
     resolution: {integrity: sha512-+Wri9p0QHMy+545hKww7YAu5NyzF8iomPL/RQazugQ9+Ez4Ic3mERMd8ZTX5rfK944j+560ZJi8iAwgak1Ac7A==}
-
-  make-dir@3.1.0:
-    resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
-    engines: {node: '>=8'}
 
   map-or-similar@1.5.0:
     resolution: {integrity: sha512-0aF7ZmVon1igznGI4VS30yugpduQW3y3GkcgGJOp7d8x8QrizhigUxjI/m2UojsXXto+jLAH3KSz+xOJTiORjg==}
@@ -2992,25 +2957,13 @@ packages:
   outdent@0.8.0:
     resolution: {integrity: sha512-KiOAIsdpUTcAXuykya5fnVVT+/5uS0Q1mrkRHcF89tpieSmY33O/tmc54CqwA+bfhbtEfZUNLHaPUiB9X3jt1A==}
 
-  p-limit@2.3.0:
-    resolution: {integrity: sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==}
-    engines: {node: '>=6'}
-
   p-limit@3.1.0:
     resolution: {integrity: sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==}
     engines: {node: '>=10'}
 
-  p-locate@4.1.0:
-    resolution: {integrity: sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==}
-    engines: {node: '>=8'}
-
   p-locate@5.0.0:
     resolution: {integrity: sha512-LaNjtRWUBY++zB5nE/NwcaoMylSPk+S+ZHNB1TzdbMJMny6dynpAGt7X/tl/QYq3TIeE6nxHppbo2LGymrG5Pw==}
     engines: {node: '>=10'}
-
-  p-try@2.2.0:
-    resolution: {integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==}
-    engines: {node: '>=6'}
 
   package-json-from-dist@1.0.0:
     resolution: {integrity: sha512-dATvCeZN/8wQsGywez1mzHtTlP22H8OEfPrVMLNr4/eGa+ijtLn/6M5f0dY8UKNrC2O9UCU6SSoG3qRKnt7STw==}
@@ -3089,10 +3042,6 @@ packages:
   pirates@4.0.6:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
     engines: {node: '>= 6'}
-
-  pkg-dir@4.2.0:
-    resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
-    engines: {node: '>=8'}
 
   pkg-types@1.0.3:
     resolution: {integrity: sha512-nN7pYi0AQqJnoLPC9eHFQ8AcyaixBUOwvqc5TDnIKCMEE6I0y8P7OKA7fPexsXGCGxQDl/cmrLAp26LhcwxZ4A==}
@@ -4318,9 +4267,9 @@ snapshots:
       - encoding
       - mocha
 
-  '@covector/assemble@0.12.0':
+  '@covector/assemble@0.12.0(mocha@10.7.3)':
     dependencies:
-      '@covector/command': 0.8.0
+      '@covector/command': 0.8.0(mocha@10.7.3)
       '@covector/files': 0.8.0
       effection: 2.0.8(mocha@10.7.3)
       js-yaml: 4.1.0
@@ -4331,9 +4280,10 @@ snapshots:
       unified: 9.2.2
     transitivePeerDependencies:
       - encoding
+      - mocha
       - supports-color
 
-  '@covector/changelog@0.12.0':
+  '@covector/changelog@0.12.0(mocha@10.7.3)':
     dependencies:
       '@covector/files': 0.8.0
       effection: 2.0.8(mocha@10.7.3)
@@ -4343,14 +4293,16 @@ snapshots:
       unified: 9.2.2
     transitivePeerDependencies:
       - encoding
+      - mocha
       - supports-color
 
-  '@covector/command@0.8.0':
+  '@covector/command@0.8.0(mocha@10.7.3)':
     dependencies:
-      '@effection/process': 2.1.4
+      '@effection/process': 2.1.4(mocha@10.7.3)
       effection: 2.0.8(mocha@10.7.3)
     transitivePeerDependencies:
       - encoding
+      - mocha
 
   '@covector/files@0.8.0':
     dependencies:
@@ -4413,10 +4365,8 @@ snapshots:
     dependencies:
       effection: 2.0.8(mocha@10.7.3)
       mocha: 10.7.3
-    transitivePeerDependencies:
-      - encoding
 
-  '@effection/process@2.1.4':
+  '@effection/process@2.1.4(mocha@10.7.3)':
     dependencies:
       cross-spawn: 7.0.3
       ctrlc-windows: 2.1.0
@@ -4424,6 +4374,7 @@ snapshots:
       shellwords: 0.1.1
     transitivePeerDependencies:
       - encoding
+      - mocha
 
   '@effection/stream@2.0.6':
     dependencies:
@@ -5298,22 +5249,14 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/builder-vite@8.4.0-alpha.3(storybook@8.3.2)(typescript@5.6.2)(vite@5.4.7(@types/node@22.5.4)(lightningcss@1.25.1))':
+  '@storybook/builder-vite@8.4.0-alpha.7(storybook@8.3.2)(vite@5.4.7(@types/node@22.5.4)(lightningcss@1.25.1))':
     dependencies:
-      '@storybook/csf-plugin': 8.4.0-alpha.3(storybook@8.3.2)
-      '@types/find-cache-dir': 3.2.1
+      '@storybook/csf-plugin': 8.4.0-alpha.7(storybook@8.3.2)
       browser-assert: 1.2.1
-      es-module-lexer: 1.5.4
-      express: 4.21.0
-      find-cache-dir: 3.3.2
-      magic-string: 0.30.11
       storybook: 8.3.2
       ts-dedent: 2.2.0
       vite: 5.4.7(@types/node@22.5.4)(lightningcss@1.25.1)
-    optionalDependencies:
-      typescript: 5.6.2
     transitivePeerDependencies:
-      - supports-color
       - webpack-sources
 
   '@storybook/core@8.3.2':
@@ -5343,7 +5286,7 @@ snapshots:
     transitivePeerDependencies:
       - webpack-sources
 
-  '@storybook/csf-plugin@8.4.0-alpha.3(storybook@8.3.2)':
+  '@storybook/csf-plugin@8.4.0-alpha.7(storybook@8.3.2)':
     dependencies:
       storybook: 8.3.2
       unplugin: 1.14.1
@@ -5579,8 +5522,6 @@ snapshots:
       '@types/express-serve-static-core': 4.19.5
       '@types/qs': 6.9.16
       '@types/serve-static': 1.15.7
-
-  '@types/find-cache-dir@3.2.1': {}
 
   '@types/hast@3.0.4':
     dependencies:
@@ -5977,8 +5918,6 @@ snapshots:
 
   commander@4.1.1: {}
 
-  commondir@1.0.1: {}
-
   confbox@0.1.7: {}
 
   consola@3.2.3: {}
@@ -5999,9 +5938,9 @@ snapshots:
     dependencies:
       '@clack/prompts': 0.7.0
       '@covector/apply': 0.10.0(mocha@10.7.3)
-      '@covector/assemble': 0.12.0
-      '@covector/changelog': 0.12.0
-      '@covector/command': 0.8.0
+      '@covector/assemble': 0.12.0(mocha@10.7.3)
+      '@covector/changelog': 0.12.0(mocha@10.7.3)
+      '@covector/command': 0.8.0(mocha@10.7.3)
       '@covector/files': 0.8.0
       effection: 2.0.8(mocha@10.7.3)
       globby: 11.1.0
@@ -6165,8 +6104,6 @@ snapshots:
       is-string: 1.0.7
       isarray: 2.0.5
       stop-iteration-iterator: 1.0.0
-
-  es-module-lexer@1.5.4: {}
 
   esbuild-plugin-solid@0.6.0(esbuild@0.23.1)(solid-js@1.9.1):
     dependencies:
@@ -6379,17 +6316,6 @@ snapshots:
       unpipe: 1.0.0
     transitivePeerDependencies:
       - supports-color
-
-  find-cache-dir@3.3.2:
-    dependencies:
-      commondir: 1.0.1
-      make-dir: 3.1.0
-      pkg-dir: 4.2.0
-
-  find-up@4.1.0:
-    dependencies:
-      locate-path: 5.0.0
-      path-exists: 4.0.0
 
   find-up@5.0.0:
     dependencies:
@@ -6818,10 +6744,6 @@ snapshots:
 
   load-tsconfig@0.2.5: {}
 
-  locate-path@5.0.0:
-    dependencies:
-      p-locate: 4.1.0
-
   locate-path@6.0.0:
     dependencies:
       p-locate: 5.0.0
@@ -6861,7 +6783,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-solid@0.440.0(solid-js@1.8.22):
+  lucide-solid@0.453.0(solid-js@1.8.22):
     dependencies:
       solid-js: 1.8.22
 
@@ -6870,10 +6792,6 @@ snapshots:
   magic-string@0.30.11:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
-
-  make-dir@3.1.0:
-    dependencies:
-      semver: 6.3.1
 
   map-or-similar@1.5.0: {}
 
@@ -7072,23 +6990,13 @@ snapshots:
 
   outdent@0.8.0: {}
 
-  p-limit@2.3.0:
-    dependencies:
-      p-try: 2.2.0
-
   p-limit@3.1.0:
     dependencies:
       yocto-queue: 0.1.0
 
-  p-locate@4.1.0:
-    dependencies:
-      p-limit: 2.3.0
-
   p-locate@5.0.0:
     dependencies:
       p-limit: 3.1.0
-
-  p-try@2.2.0: {}
 
   package-json-from-dist@1.0.0: {}
 
@@ -7161,10 +7069,6 @@ snapshots:
       thread-stream: 3.1.0
 
   pirates@4.0.6: {}
-
-  pkg-dir@4.2.0:
-    dependencies:
-      find-up: 4.1.0
 
   pkg-types@1.0.3:
     dependencies:
@@ -7601,16 +7505,12 @@ snapshots:
     dependencies:
       internal-slot: 1.0.7
 
-  storybook-solidjs-vite@1.0.0-beta.2(storybook@8.3.2)(typescript@5.6.2)(vite@5.4.7(@types/node@22.5.4)(lightningcss@1.25.1)):
+  storybook-solidjs-vite@1.0.0-beta.2(storybook@8.3.2)(vite@5.4.7(@types/node@22.5.4)(lightningcss@1.25.1)):
     dependencies:
-      '@storybook/builder-vite': 8.4.0-alpha.3(storybook@8.3.2)(typescript@5.6.2)(vite@5.4.7(@types/node@22.5.4)(lightningcss@1.25.1))
+      '@storybook/builder-vite': 8.4.0-alpha.7(storybook@8.3.2)(vite@5.4.7(@types/node@22.5.4)(lightningcss@1.25.1))
     transitivePeerDependencies:
-      - '@preact/preset-vite'
       - storybook
-      - supports-color
-      - typescript
       - vite
-      - vite-plugin-glimmerx
       - webpack-sources
 
   storybook-solidjs@1.0.0-beta.2(babel-preset-solid@1.8.22(@babel/core@7.25.2))(solid-js@1.9.1):
