@@ -70,14 +70,14 @@ importers:
         specifier: 5.6.2
         version: 5.6.2
       vite:
-        specifier: 5.4.7
-        version: 5.4.7(@types/node@22.9.3)(lightningcss@1.25.1)
+        specifier: 5.4.21
+        version: 5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)
       vite-plugin-solid:
         specifier: 2.10.2
-        version: 2.10.2(@testing-library/jest-dom@6.5.0)(solid-js@1.9.1)(vite@5.4.7(@types/node@22.9.3)(lightningcss@1.25.1))
+        version: 2.10.2(@testing-library/jest-dom@6.5.0)(solid-js@1.9.1)(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1))
       vite-tsconfig-paths:
         specifier: 5.0.1
-        version: 5.0.1(typescript@5.6.2)(vite@5.4.7(@types/node@22.9.3)(lightningcss@1.25.1))
+        version: 5.0.1(typescript@5.6.2)(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1))
 
   packages/api:
     dependencies:
@@ -189,7 +189,7 @@ importers:
         version: 1.0.0-beta.2(babel-preset-solid@1.8.22(@babel/core@7.25.2))(solid-js@1.9.1)
       storybook-solidjs-vite:
         specifier: 1.0.0-beta.2
-        version: 1.0.0-beta.2(storybook@8.3.2)(vite@5.4.7(@types/node@22.9.3)(lightningcss@1.25.1))
+        version: 1.0.0-beta.2(esbuild@0.23.1)(rollup@4.22.0)(storybook@8.3.2)(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1))
       tsup:
         specifier: 8.3.0
         version: 8.3.0(postcss@8.4.47)(typescript@5.6.2)
@@ -954,6 +954,9 @@ packages:
     resolution: {integrity: sha512-IzL8ZoEDIBRWEzlCcRhOaCupYyN5gdIK+Q6fbFdPDg6HqX6jpkItn7DFIpW9LQzXG6Df9sA7+OKnq0qlz/GaQg==}
     engines: {node: '>=6.0.0'}
 
+  '@jridgewell/remapping@2.3.5':
+    resolution: {integrity: sha512-LI9u/+laYG4Ds1TDKSJW2YPrIlcVYOwi2fUC6xB43lueCjgxV4lffOCZCtYFiH6TNOX+tQKXx97T4IKHbhyHEQ==}
+
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
     engines: {node: '>=6.0.0'}
@@ -964,6 +967,9 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.5.0':
     resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
+
+  '@jridgewell/sourcemap-codec@1.5.5':
+    resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
@@ -1318,24 +1324,37 @@ packages:
       react-dom:
         optional: true
 
-  '@storybook/builder-vite@8.5.0-alpha.10':
-    resolution: {integrity: sha512-QnAaY/DJCQRaUY0naOIbNTi+q3bYiQOhh6tV+P6W8vCXCSTKaQWSnmKbTrL+1AEDl03H0z1rKg5TVZViblCbgQ==}
+  '@storybook/builder-vite@10.2.0-alpha.10':
+    resolution: {integrity: sha512-6GeWRiN+f+N54KwxWhOVNUW5uSlFS1rvEHtr16RUPYJfavJ+c+ofxCnlTTHKBkpoGIeGJoVFgKzKKzO3CHszJg==}
     peerDependencies:
-      storybook: ^8.5.0-alpha.10
-      vite: ^4.0.0 || ^5.0.0
+      storybook: ^10.2.0-alpha.10
+      vite: ^5.0.0 || ^6.0.0 || ^7.0.0
 
   '@storybook/core@8.3.2':
     resolution: {integrity: sha512-DVXs9AZzXHUKEhi5hKQ4gmH2ODFFM9hmd3odnlqenIINxGynbRtAGzU8pMhjrTRSrnlLr1liGew1IcY+hwkFjQ==}
+
+  '@storybook/csf-plugin@10.2.0-alpha.10':
+    resolution: {integrity: sha512-YqrHdYf8ylAfmlKyUtsLVOE7XjbsicLAOhScH2mdnVdwf3zpI3oa+ek+OLJzXJhPEdlGRbN8NB1M3q58uOVc1A==}
+    peerDependencies:
+      esbuild: '*'
+      rollup: '*'
+      storybook: ^10.2.0-alpha.10
+      vite: '*'
+      webpack: '*'
+    peerDependenciesMeta:
+      esbuild:
+        optional: true
+      rollup:
+        optional: true
+      vite:
+        optional: true
+      webpack:
+        optional: true
 
   '@storybook/csf-plugin@8.3.2':
     resolution: {integrity: sha512-9UvoBkYDLzf/0e2lQMPyBCJHrrEMxvhL7fraVX2c5OxwVUwgQnHlgNR3zxzw1Nr/AWyC5OKYlaE1eM10JVm2GA==}
     peerDependencies:
       storybook: ^8.3.2
-
-  '@storybook/csf-plugin@8.5.0-alpha.10':
-    resolution: {integrity: sha512-He8y7nA9r7zNHHEU1LcxdF4S1Y3/Xi7MxlwbvPuDg3gbwkoRA5XXRxwcXQYfLfynlWmJdfcbI53qPI4HrsZxWA==}
-    peerDependencies:
-      storybook: ^8.5.0-alpha.10
 
   '@storybook/csf@0.1.11':
     resolution: {integrity: sha512-dHYFQH3mA+EtnCkHXzicbLgsvzYjcDJ1JWsogbItZogkPHgSJM/Wr71uMkcvw8v9mmCyP4NpXJuu6bPoVsOnzg==}
@@ -1611,6 +1630,17 @@ packages:
       vite:
         optional: true
 
+  '@vitest/mocker@3.2.4':
+    resolution: {integrity: sha512-46ryTE9RZO/rfDd7pEqFl7etuyzekzEhUbTW3BvmeO/BcCMEgq59BKhek3dXDWgAj4oMK6OZi+vRr1wPW6qjEQ==}
+    peerDependencies:
+      msw: ^2.4.9
+      vite: ^5.0.0 || ^6.0.0 || ^7.0.0-0
+    peerDependenciesMeta:
+      msw:
+        optional: true
+      vite:
+        optional: true
+
   '@vitest/pretty-format@2.0.5':
     resolution: {integrity: sha512-h8k+1oWHfwTkyTkb9egzwNMfJAEx4veaPSnMeKbVSjp4euqGSbQlm5+6VHwTr7u4FJslVVsUG5nopCaAYdOmSQ==}
 
@@ -1628,6 +1658,9 @@ packages:
 
   '@vitest/spy@2.1.1':
     resolution: {integrity: sha512-ZM39BnZ9t/xZ/nF4UwRH5il0Sw93QnZXd9NAZGRpIgj0yvVwPpLd702s/Cx955rGaMlyBQkZJ2Ir7qyY48VZ+g==}
+
+  '@vitest/spy@3.2.4':
+    resolution: {integrity: sha512-vAfasCOe6AIK70iP5UD11Ac4siNUNJ9i/9PZ3NKx07sG6sUxeag1LWdNrMWeKKYBLlzuK+Gn65Yd5nyL6ds+nw==}
 
   '@vitest/utils@2.0.5':
     resolution: {integrity: sha512-d8HKbqIcya+GR67mkZbrzhS5kKhtp8dQLcmRZLGTscGVg7yImT82cIrhtn2L8+VujWcy6KZweApgNmPsTAO/UQ==}
@@ -1660,6 +1693,11 @@ packages:
 
   acorn@8.12.1:
     resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+
+  acorn@8.15.0:
+    resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
 
@@ -2760,6 +2798,9 @@ packages:
   magic-string@0.30.11:
     resolution: {integrity: sha512-+Wri9p0QHMy+545hKww7YAu5NyzF8iomPL/RQazugQ9+Ez4Ic3mERMd8ZTX5rfK944j+560ZJi8iAwgak1Ac7A==}
 
+  magic-string@0.30.21:
+    resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
+
   map-or-similar@1.5.0:
     resolution: {integrity: sha512-0aF7ZmVon1igznGI4VS30yugpduQW3y3GkcgGJOp7d8x8QrizhigUxjI/m2UojsXXto+jLAH3KSz+xOJTiORjg==}
 
@@ -3027,6 +3068,10 @@ packages:
 
   picomatch@4.0.2:
     resolution: {integrity: sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==}
+    engines: {node: '>=12'}
+
+  picomatch@4.0.3:
+    resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
     engines: {node: '>=12'}
 
   pino-abstract-transport@1.2.0:
@@ -3397,6 +3442,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
@@ -3430,6 +3476,7 @@ packages:
   storybook-solidjs@1.0.0-beta.2:
     resolution: {integrity: sha512-wXjM/uH29IPjgxlPvQVNTM/7iBFNNzjuOugpk7iM2oy+sZl7K70eBjvOqGgX5v35pNHTaA8Ju3BlLdp+O20abg==}
     engines: {node: '>=16.0.0'}
+    deprecated: 'This package is deprecated. Use storybook-solidjs-vite instead: https://www.npmjs.com/package/storybook-solidjs-vite'
     peerDependencies:
       babel-preset-solid: ^1.6.6
       solid-js: ^1.6.6
@@ -3522,6 +3569,10 @@ packages:
 
   tinyspy@3.0.2:
     resolution: {integrity: sha512-n1cw8k1k0x4pgA2+9XrOkFydTerNcJ1zWCO5Nn9scWHTD+5tp8dghT2x1uduQePZTZgd3Tupf+x9BxJjeJi77Q==}
+    engines: {node: '>=14.0.0'}
+
+  tinyspy@4.0.4:
+    resolution: {integrity: sha512-azl+t0z7pw/z958Gy9svOTuzqIk6xq+NSheJzn5MMWtWTFywIacg2wUlzKFGtt3cthx0r2SxMK0yzJOR0IES7Q==}
     engines: {node: '>=14.0.0'}
 
   to-fast-properties@2.0.0:
@@ -3711,6 +3762,10 @@ packages:
       webpack-sources:
         optional: true
 
+  unplugin@2.3.11:
+    resolution: {integrity: sha512-5uKD0nqiYVzlmCRs01Fhs2BdkEgBS3SAVP6ndrBsuK42iC2+JHyxM05Rm9G8+5mkmRtzMZGY8Ct5+mliZxU/Ww==}
+    engines: {node: '>=18.12.0'}
+
   update-browserslist-db@1.1.0:
     resolution: {integrity: sha512-EdRAaAyk2cUE1wOf2DkEhzxqOQvFOoRJFNS6NeyJ01Gp2beMRpBAINjM2iDXE3KCuKhwnvHIQCJm6ThL2Z+HzQ==}
     hasBin: true
@@ -3767,39 +3822,8 @@ packages:
       vite:
         optional: true
 
-  vite@5.4.6:
-    resolution: {integrity: sha512-IeL5f8OO5nylsgzd9tq4qD2QqI0k2CQLGrWD0rCN0EQJZpBK5vJAx0I+GDkMOXxQX/OfFHMuLIx6ddAxGX/k+Q==}
-    engines: {node: ^18.0.0 || >=20.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': ^18.0.0 || >=20.0.0
-      less: '*'
-      lightningcss: ^1.21.0
-      sass: '*'
-      sass-embedded: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      sass-embedded:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-
-  vite@5.4.7:
-    resolution: {integrity: sha512-5l2zxqMEPVENgvzTuBpHer2awaetimj2BGkhBPdnwKbPNOlHsODU+oiazEZzLK7KhAnOrO+XGYJYn4ZlUhDtDQ==}
+  vite@5.4.21:
+    resolution: {integrity: sha512-o5a9xKjbtuhY6Bi5S3+HvbRERmouabWbyUcpXXUA1u+GNUKoROi9byOJ8M0nHbHYHkYICiMlqxkg1KkYmm25Sw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -4624,11 +4648,18 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.0
       '@jridgewell/trace-mapping': 0.3.25
 
+  '@jridgewell/remapping@2.3.5':
+    dependencies:
+      '@jridgewell/gen-mapping': 0.3.5
+      '@jridgewell/trace-mapping': 0.3.25
+
   '@jridgewell/resolve-uri@3.1.2': {}
 
   '@jridgewell/set-array@1.2.1': {}
 
   '@jridgewell/sourcemap-codec@1.5.0': {}
+
+  '@jridgewell/sourcemap-codec@1.5.5': {}
 
   '@jridgewell/trace-mapping@0.3.25':
     dependencies:
@@ -5244,15 +5275,18 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/builder-vite@8.5.0-alpha.10(storybook@8.3.2)(vite@5.4.7(@types/node@22.9.3)(lightningcss@1.25.1))':
+  '@storybook/builder-vite@10.2.0-alpha.10(esbuild@0.23.1)(rollup@4.22.0)(storybook@8.3.2)(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1))':
     dependencies:
-      '@storybook/csf-plugin': 8.5.0-alpha.10(storybook@8.3.2)
-      browser-assert: 1.2.1
+      '@storybook/csf-plugin': 10.2.0-alpha.10(esbuild@0.23.1)(rollup@4.22.0)(storybook@8.3.2)(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1))
+      '@vitest/mocker': 3.2.4(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1))
       storybook: 8.3.2
       ts-dedent: 2.2.0
-      vite: 5.4.7(@types/node@22.9.3)(lightningcss@1.25.1)
+      vite: 5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)
     transitivePeerDependencies:
-      - webpack-sources
+      - esbuild
+      - msw
+      - rollup
+      - webpack
 
   '@storybook/core@8.3.2':
     dependencies:
@@ -5274,14 +5308,16 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@storybook/csf-plugin@8.3.2(storybook@8.3.2)':
+  '@storybook/csf-plugin@10.2.0-alpha.10(esbuild@0.23.1)(rollup@4.22.0)(storybook@8.3.2)(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1))':
     dependencies:
       storybook: 8.3.2
-      unplugin: 1.14.1
-    transitivePeerDependencies:
-      - webpack-sources
+      unplugin: 2.3.11
+    optionalDependencies:
+      esbuild: 0.23.1
+      rollup: 4.22.0
+      vite: 5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)
 
-  '@storybook/csf-plugin@8.5.0-alpha.10(storybook@8.3.2)':
+  '@storybook/csf-plugin@8.3.2(storybook@8.3.2)':
     dependencies:
       storybook: 8.3.2
       unplugin: 1.14.1
@@ -5584,13 +5620,21 @@ snapshots:
       chai: 5.1.1
       tinyrainbow: 1.2.0
 
-  '@vitest/mocker@2.1.1(@vitest/spy@2.1.1)(vite@5.4.6(@types/node@22.9.3)(lightningcss@1.25.1))':
+  '@vitest/mocker@2.1.1(@vitest/spy@2.1.1)(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1))':
     dependencies:
       '@vitest/spy': 2.1.1
       estree-walker: 3.0.3
       magic-string: 0.30.11
     optionalDependencies:
-      vite: 5.4.6(@types/node@22.9.3)(lightningcss@1.25.1)
+      vite: 5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)
+
+  '@vitest/mocker@3.2.4(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1))':
+    dependencies:
+      '@vitest/spy': 3.2.4
+      estree-walker: 3.0.3
+      magic-string: 0.30.21
+    optionalDependencies:
+      vite: 5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)
 
   '@vitest/pretty-format@2.0.5':
     dependencies:
@@ -5618,6 +5662,10 @@ snapshots:
   '@vitest/spy@2.1.1':
     dependencies:
       tinyspy: 3.0.2
+
+  '@vitest/spy@3.2.4':
+    dependencies:
+      tinyspy: 4.0.4
 
   '@vitest/utils@2.0.5':
     dependencies:
@@ -5674,6 +5722,8 @@ snapshots:
       negotiator: 0.6.3
 
   acorn@8.12.1: {}
+
+  acorn@8.15.0: {}
 
   ansi-colors@4.1.3: {}
 
@@ -6788,6 +6838,10 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
 
+  magic-string@0.30.21:
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.5.5
+
   map-or-similar@1.5.0: {}
 
   markdown-to-jsx@7.5.0(react@18.3.1):
@@ -7041,6 +7095,8 @@ snapshots:
   picomatch@2.3.1: {}
 
   picomatch@4.0.2: {}
+
+  picomatch@4.0.3: {}
 
   pino-abstract-transport@1.2.0:
     dependencies:
@@ -7494,13 +7550,16 @@ snapshots:
     dependencies:
       internal-slot: 1.0.7
 
-  storybook-solidjs-vite@1.0.0-beta.2(storybook@8.3.2)(vite@5.4.7(@types/node@22.9.3)(lightningcss@1.25.1)):
+  storybook-solidjs-vite@1.0.0-beta.2(esbuild@0.23.1)(rollup@4.22.0)(storybook@8.3.2)(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)):
     dependencies:
-      '@storybook/builder-vite': 8.5.0-alpha.10(storybook@8.3.2)(vite@5.4.7(@types/node@22.9.3)(lightningcss@1.25.1))
+      '@storybook/builder-vite': 10.2.0-alpha.10(esbuild@0.23.1)(rollup@4.22.0)(storybook@8.3.2)(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1))
     transitivePeerDependencies:
+      - esbuild
+      - msw
+      - rollup
       - storybook
       - vite
-      - webpack-sources
+      - webpack
 
   storybook-solidjs@1.0.0-beta.2(babel-preset-solid@1.8.22(@babel/core@7.25.2))(solid-js@1.9.1):
     dependencies:
@@ -7601,6 +7660,8 @@ snapshots:
   tinyrainbow@1.2.0: {}
 
   tinyspy@3.0.2: {}
+
+  tinyspy@4.0.4: {}
 
   to-fast-properties@2.0.0: {}
 
@@ -7759,6 +7820,13 @@ snapshots:
       acorn: 8.12.1
       webpack-virtual-modules: 0.6.2
 
+  unplugin@2.3.11:
+    dependencies:
+      '@jridgewell/remapping': 2.3.5
+      acorn: 8.15.0
+      picomatch: 4.0.3
+      webpack-virtual-modules: 0.6.2
+
   update-browserslist-db@1.1.0(browserslist@4.23.3):
     dependencies:
       browserslist: 4.23.3
@@ -7800,7 +7868,7 @@ snapshots:
       cac: 6.7.14
       debug: 4.3.7(supports-color@8.1.1)
       pathe: 1.1.2
-      vite: 5.4.7(@types/node@22.9.3)(lightningcss@1.25.1)
+      vite: 5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -7812,7 +7880,7 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-solid@2.10.2(@testing-library/jest-dom@6.5.0)(solid-js@1.9.1)(vite@5.4.7(@types/node@22.9.3)(lightningcss@1.25.1)):
+  vite-plugin-solid@2.10.2(@testing-library/jest-dom@6.5.0)(solid-js@1.9.1)(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)):
     dependencies:
       '@babel/core': 7.25.2
       '@types/babel__core': 7.20.5
@@ -7820,25 +7888,25 @@ snapshots:
       merge-anything: 5.1.7
       solid-js: 1.9.1
       solid-refresh: 0.6.3(solid-js@1.9.1)
-      vite: 5.4.7(@types/node@22.9.3)(lightningcss@1.25.1)
-      vitefu: 0.2.5(vite@5.4.7(@types/node@22.9.3)(lightningcss@1.25.1))
+      vite: 5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)
+      vitefu: 0.2.5(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1))
     optionalDependencies:
       '@testing-library/jest-dom': 6.5.0
     transitivePeerDependencies:
       - supports-color
 
-  vite-tsconfig-paths@5.0.1(typescript@5.6.2)(vite@5.4.7(@types/node@22.9.3)(lightningcss@1.25.1)):
+  vite-tsconfig-paths@5.0.1(typescript@5.6.2)(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)):
     dependencies:
       debug: 4.3.7(supports-color@8.1.1)
       globrex: 0.1.2
       tsconfck: 3.1.3(typescript@5.6.2)
     optionalDependencies:
-      vite: 5.4.7(@types/node@22.9.3)(lightningcss@1.25.1)
+      vite: 5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@5.4.6(@types/node@22.9.3)(lightningcss@1.25.1):
+  vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.47
@@ -7848,24 +7916,14 @@ snapshots:
       fsevents: 2.3.3
       lightningcss: 1.25.1
 
-  vite@5.4.7(@types/node@22.9.3)(lightningcss@1.25.1):
-    dependencies:
-      esbuild: 0.21.5
-      postcss: 8.4.47
-      rollup: 4.22.0
+  vitefu@0.2.5(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)):
     optionalDependencies:
-      '@types/node': 22.9.3
-      fsevents: 2.3.3
-      lightningcss: 1.25.1
-
-  vitefu@0.2.5(vite@5.4.7(@types/node@22.9.3)(lightningcss@1.25.1)):
-    optionalDependencies:
-      vite: 5.4.7(@types/node@22.9.3)(lightningcss@1.25.1)
+      vite: 5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)
 
   vitest@2.1.1(@types/node@22.9.3)(lightningcss@1.25.1):
     dependencies:
       '@vitest/expect': 2.1.1
-      '@vitest/mocker': 2.1.1(@vitest/spy@2.1.1)(vite@5.4.6(@types/node@22.9.3)(lightningcss@1.25.1))
+      '@vitest/mocker': 2.1.1(@vitest/spy@2.1.1)(vite@5.4.21(@types/node@22.9.3)(lightningcss@1.25.1))
       '@vitest/pretty-format': 2.1.1
       '@vitest/runner': 2.1.1
       '@vitest/snapshot': 2.1.1
@@ -7880,7 +7938,7 @@ snapshots:
       tinyexec: 0.3.0
       tinypool: 1.0.1
       tinyrainbow: 1.2.0
-      vite: 5.4.6(@types/node@22.9.3)(lightningcss@1.25.1)
+      vite: 5.4.21(@types/node@22.9.3)(lightningcss@1.25.1)
       vite-node: 2.1.1(@types/node@22.9.3)(lightningcss@1.25.1)
       why-is-node-running: 2.3.0
     optionalDependencies:
